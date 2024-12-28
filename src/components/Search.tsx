@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-const Busca = ({ onSearch }) => {
+interface IBusca {
+  onSearch: (input: string) => void;
+}
+
+const Busca = ({ onSearch }: IBusca) => {
   const [input, setInput] = useState("");
 
   const handleSearch = () => {
@@ -12,10 +16,11 @@ const Busca = ({ onSearch }) => {
   return (
     <div>
       <input
-        type="text"
-        placeholder="Busque um livro..."
-        value={input}
         onChange={(e) => setInput(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+        placeholder="Busque um livro..."
+        type="text"
+        value={input}
       />
       <button onClick={handleSearch}>Buscar</button>
     </div>

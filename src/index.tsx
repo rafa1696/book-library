@@ -2,6 +2,8 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import App from "./App";
 import { createRoot } from "react-dom/client";
 
+import "./styles/import-all.css";
+
 const queryClient = new QueryClient();
 
 const container = document.getElementById("app");
