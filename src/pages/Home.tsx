@@ -1,15 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  JSXElementConstructor,
-  Key,
-  ReactElement,
-  ReactNode,
-  ReactPortal,
-  useState,
-} from "react";
+import { useState } from "react";
 import { useBooks } from "../hooks/useBooks";
 import Search from "../components/Search";
 import { GoogleBookVolumes } from "../types/GoogleBookVolumes.type";
+import BookCard from "../components/BookCard/BookCard";
+import SearchGallery from "../components/SearchGallery/SearchGallery";
 
 const Home = () => {
   const [query, setQuery] = useState("");
@@ -23,14 +17,13 @@ const Home = () => {
       {isLoading && <p>Carregando...</p>}
       {isError && <p>Ocorreu um erro. Tente novamente.</p>}
 
-      <div>
+      <SearchGallery>
         {books?.map((book: GoogleBookVolumes) => (
-          <div key={book.id}>
-            <h3>{book.volumeInfo.title}</h3>
-            <p>{book.volumeInfo.authors?.join(", ")}</p>
-          </div>
+          <li key={book.id}>
+            <BookCard book={book} />
+          </li>
         ))}
-      </div>
+      </SearchGallery>
     </div>
   );
 };
