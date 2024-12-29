@@ -3,7 +3,7 @@ import { useBooks } from "../hooks/useBooks";
 import Search from "../components/Search";
 import { GoogleBookVolumes } from "../types/GoogleBookVolumes.type";
 import BookCard from "../components/BookCard/BookCard";
-import SearchGallery from "../components/SearchGallery/SearchGallery";
+import BookGallery from "../components/BookGallery/BookGallery";
 
 const Home = () => {
   const [query, setQuery] = useState("");
@@ -16,13 +16,13 @@ const Home = () => {
       {isLoading && <p>Carregando...</p>}
       {isError && <p>Ocorreu um erro. Tente novamente.</p>}
 
-      <SearchGallery>
+      <BookGallery>
         {books?.map((book: GoogleBookVolumes) => (
           <li key={book.id}>
             <BookCard book={book} />
           </li>
         ))}
-      </SearchGallery>
+      </BookGallery>
     </div>
   );
 };

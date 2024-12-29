@@ -2,10 +2,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import routes from "./routes/routes";
+import { BookLibraryProvider } from "./context/BookLibraryContext";
 
 const App = () => {
   return (
-    <>
+    <BookLibraryProvider>
       <Router>
         <Header />
         <Routes>
@@ -19,7 +20,7 @@ const App = () => {
         </Routes>
         <Footer />
       </Router>
-    </>
+    </BookLibraryProvider>
   );
 };
 
