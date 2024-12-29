@@ -11,7 +11,6 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Biblioteca Virtual</h1>
       <Search onSearch={setQuery} />
 
       {isLoading && <p>Carregando...</p>}
