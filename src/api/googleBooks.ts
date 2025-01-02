@@ -1,9 +1,7 @@
-import axios from "axios";
-
-const BASE_URL = "https://www.googleapis.com/books/v1/volumes";
+import baseApi from "./baseApi";
 
 export const fetchBooks = async (query: string) => {
-  const { data } = await axios.get(BASE_URL, {
+  const { data } = await baseApi.get("/volumes", {
     params: {
       q: query,
       maxResults: 10, // Limita o número de resultados
