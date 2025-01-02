@@ -16,8 +16,6 @@ const BookCard: FC<IBookCard> = ({ book }) => {
 
   const location = useLocation();
 
-  console.log("location", location);
-
   const handleButtons = (type: BookCardButtons) => {
     switch (type) {
       case BookCardButtons.ProductPage:

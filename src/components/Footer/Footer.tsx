@@ -6,7 +6,6 @@ const Footer = () => {
   const navigate = useNavigate();
 
   const navigateToRoute = (routeName: NavigationRoutes) => {
-    // console.log(routeName);
     navigate(routeName);
   };
 
