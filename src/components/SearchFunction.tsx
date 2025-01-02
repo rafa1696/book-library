@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-interface IBusca {
+interface ISearchFunction {
   onSearch: (input: string) => void;
 }
 
-const Busca = ({ onSearch }: IBusca) => {
+const SearchFunction = ({ onSearch }: ISearchFunction) => {
   const [input, setInput] = useState("");
 
   const handleSearch = () => {
@@ -27,4 +27,4 @@ const Busca = ({ onSearch }: IBusca) => {
   );
 };
 
-export default Busca;
+export default SearchFunction;
