@@ -27,13 +27,13 @@
     flex-direction: column;
     justify-content: space-between;
 
-    h2 {
+    .container_textsDiv__publicationName {
       font-size: 1.8rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
 
-    p {
+    .container_textsDiv__authorName {
       font-size: 1.4rem;
       margin-bottom: 0.5rem;
     }

@@ -8,6 +8,7 @@ type ContextProviderProps = {
 interface IBookLibraryContext {
   savedBooks: string[];
   saveBook: (bookId: string) => void;
+  removeBook: (bookId: string) => void;
 }
 
 const BookLibraryContext = createContext({} as IBookLibraryContext);
@@ -25,10 +26,6 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
     return setSavedBooks([]);
   };
 
-  useEffect(() => {
-    getSavedBooks();
-  }, []);
-
   const saveBook = (bookId: string) => {
     const books = localStorage.getItem("books");
 
@@ -45,8 +42,27 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
     getSavedBooks();
   };
 
+  const removeBook = (bookId: string) => {
+    const books = localStorage.getItem("books");
+
+    if (!books) return;
+
+    const parsedBooks = JSON.parse(books);
+
+    localStorage.setItem(
+      "books",
+      JSON.stringify(parsedBooks.filter((book: string) => book !== bookId))
+    );
+
+    getSavedBooks();
+  };
+
+  useEffect(() => {
+    getSavedBooks();
+  }, []);
+
   return (
-    <BookLibraryContext.Provider value={{ saveBook, savedBooks }}>
+    <BookLibraryContext.Provider value={{ saveBook, savedBooks, removeBook }}>
       {children}
     </BookLibraryContext.Provider>
   );

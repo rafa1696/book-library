@@ -4,13 +4,19 @@ import { GoogleBookVolumes } from "../../types/GoogleBookVolumes.type";
 import { BookCardButtons } from "../../enums/BookCardButtons.enum";
 import { truncateText } from "../../utils/truncateText";
 import { useBookLibraryContext } from "../../context/BookLibraryContext";
+import { useLocation } from "react-router-dom";
+import { NavigationRoutes } from "../../enums/NavigationRoutes.enum";
 
 interface IBookCard {
   book: GoogleBookVolumes;
 }
 
 const BookCard: FC<IBookCard> = ({ book }) => {
-  const { saveBook } = useBookLibraryContext();
+  const { saveBook, removeBook } = useBookLibraryContext();
+
+  const location = useLocation();
+
+  console.log("location", location);
 
   const handleButtons = (type: BookCardButtons) => {
     switch (type) {
@@ -19,6 +25,9 @@ const BookCard: FC<IBookCard> = ({ book }) => {
         break;
       case BookCardButtons.AddToLibrary:
         saveBook(book.id);
+        break;
+      case BookCardButtons.RemoveFromLibrary:
+        removeBook(book.id);
         break;
       default:
         break;
@@ -42,20 +51,36 @@ const BookCard: FC<IBookCard> = ({ book }) => {
       </span>
       <div className={styles.container_textsDiv}>
         <h3 className={styles.container_textsDiv__publicationName}>
-          {truncateText(book.volumeInfo.title, 45)}
+          {truncateText(book.volumeInfo.title, 35)}
         </h3>
+        {book.volumeInfo.authors && (
+          <h4 className={styles.container_textsDiv__authorName}>
+            {truncateText(book?.volumeInfo?.authors?.join(", "), 40)}
+          </h4>
+        )}
         <button
           onClick={() => handleButtons(BookCardButtons.ProductPage)}
           className={styles.container_textsDiv__productPageButton}
         >
           Comprar
         </button>
-        <button
-          onClick={() => handleButtons(BookCardButtons.AddToLibrary)}
-          className={styles.container_textsDiv__productAddToLibraryButton}
-        >
-          Adicionar À Biblioteca
-        </button>
+        {location.pathname === NavigationRoutes.MyBooks ? (
+          <button
+            onClick={() => handleButtons(BookCardButtons.RemoveFromLibrary)}
+            className={
+              styles.container_textsDiv__productRemoveFromLibraryButton
+            }
+          >
+            Remover Da Biblioteca
+          </button>
+        ) : (
+          <button
+            onClick={() => handleButtons(BookCardButtons.AddToLibrary)}
+            className={styles.container_textsDiv__productAddToLibraryButton}
+          >
+            Adicionar À Biblioteca
+          </button>
+        )}
       </div>
     </section>
   );
