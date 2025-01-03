@@ -17,6 +17,9 @@ const Footer = () => {
       <button onClick={() => navigateToRoute(NavigationRoutes.Search)}>
         Busca
       </button>
+      <button onClick={() => navigateToRoute(NavigationRoutes.ReadingDiary)}>
+        Diário
+      </button>
       <button onClick={() => navigateToRoute(NavigationRoutes.MyBooks)}>
         Meus Livros
       </button>

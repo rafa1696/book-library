@@ -6,15 +6,18 @@ type ContextProviderProps = {
 };
 
 interface IBookLibraryContext {
-  savedBooks: string[];
-  saveBook: (bookId: string) => void;
+  readingDiary: string[];
   removeBook: (bookId: string) => void;
+  saveBook: (bookId: string) => void;
+  savedBooks: string[];
+  saveReadingDiary: (diaryEntryId: string) => void;
 }
 
 const BookLibraryContext = createContext({} as IBookLibraryContext);
 
 export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
   const [savedBooks, setSavedBooks] = useState<string[]>([]);
+  const [readingDiary, setReadingDiary] = useState<string[]>([]);
 
   const getSavedBooks = () => {
     const books = localStorage.getItem("books");
@@ -57,12 +60,49 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
     getSavedBooks();
   };
 
+  const getReadingDiary = () => {
+    const readingDiary = localStorage.getItem("readingDiary");
+
+    if (readingDiary) {
+      return setReadingDiary(JSON.parse(readingDiary));
+    }
+
+    return setReadingDiary([]);
+  };
+
+  const saveReadingDiary = (diaryEntryId: string) => {
+    const diary = localStorage.getItem("readingDiary");
+
+    if (diary) {
+      const parsedDiary = JSON.parse(diary);
+
+      if (parsedDiary.includes(diaryEntryId.toString())) return;
+
+      localStorage.setItem(
+        "readingDiary",
+        JSON.stringify([...parsedDiary, diaryEntryId])
+      );
+    } else {
+      localStorage.setItem("readingDiary", JSON.stringify([diaryEntryId]));
+    }
+
+    getReadingDiary();
+  };
+
   useEffect(() => {
     getSavedBooks();
   }, []);
 
   return (
-    <BookLibraryContext.Provider value={{ saveBook, savedBooks, removeBook }}>
+    <BookLibraryContext.Provider
+      value={{
+        saveBook,
+        savedBooks,
+        removeBook,
+        readingDiary,
+        saveReadingDiary,
+      }}
+    >
       {children}
     </BookLibraryContext.Provider>
   );
