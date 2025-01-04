@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useBookLibraryContext } from "../../context/BookLibraryContext";
 import { ReadingDiaryEntry } from "../../types/ReadingDiaryEntry.type";
 import styles from "./DiaryEntry.module.css";
+import { returnRandomNumber } from "../../utils/returnRandomNumber";
 
 const DiaryEntry = () => {
   const { diaryEntryId } = useParams<{ diaryEntryId: string }>();
@@ -15,23 +16,27 @@ const DiaryEntry = () => {
     const foundEntry =
       readingDiary && readingDiary.find((entry) => entry.id === diaryEntryId);
 
+    console.log("foundEntry", foundEntry);
+
     if (foundEntry) {
       setEntry(foundEntry);
       setText(foundEntry.entry);
     } else {
       if (diaryEntryId) {
         setEntry({
-          id: diaryEntryId,
+          id: diaryEntryId + "-" + returnRandomNumber(0, 100000),
           title: "",
           associatedBooks: [diaryEntryId],
           entry: "",
+          timestamp: Date.now(),
         });
       }
     }
   }, [diaryEntryId, readingDiary]);
 
   const handleSave = () => {
-    if (entry) {
+    // TODO - Trocar nome de entry para diaryEntryText ou algo parecido
+    if (entry && text.length > 0) {
       saveReadingDiary({ ...entry, entry: text });
       navigate("/reading-diary");
     }

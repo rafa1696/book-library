@@ -3,4 +3,5 @@ export type ReadingDiaryEntry = {
   title: string;
   associatedBooks: string[];
   entry: string;
+  timestamp: number;
 };

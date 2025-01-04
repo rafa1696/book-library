@@ -74,13 +74,35 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
   const saveReadingDiary = (entry: ReadingDiaryEntry) => {
     const diary = localStorage.getItem("readingDiary");
 
+    console.log("save entry", entry);
+
     if (diary) {
       const parsedDiary = JSON.parse(diary);
-      const updatedDiary = parsedDiary.map((e: ReadingDiaryEntry) =>
-        e.id === entry.id ? entry : e
+      const foundEntry = parsedDiary.find(
+        (registeredEntry: ReadingDiaryEntry) => registeredEntry.id === entry.id
+      );
+      console.log("foundEntry", foundEntry);
+
+      if (!foundEntry) {
+        localStorage.setItem(
+          "readingDiary",
+          JSON.stringify([...parsedDiary, entry])
+        );
+        getReadingDiary();
+
+        return;
+      }
+
+      const updatedDiary = parsedDiary.map(
+        (registeredEntry: ReadingDiaryEntry) =>
+          registeredEntry.id === entry.id ? entry : registeredEntry
       );
 
       localStorage.setItem("readingDiary", JSON.stringify(updatedDiary));
+      // localStorage.setItem(
+      //   "readingDiary",
+      //   JSON.stringify([...parsedDiary, entry])
+      // );
     } else {
       localStorage.setItem("readingDiary", JSON.stringify([entry]));
     }

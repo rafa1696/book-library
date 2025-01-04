@@ -4,7 +4,7 @@ import { GoogleBookVolumes } from "../../types/GoogleBookVolumes.type";
 import { BookCardButtons } from "../../enums/BookCardButtons.enum";
 import { truncateText } from "../../utils/truncateText";
 import { useBookLibraryContext } from "../../context/BookLibraryContext";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { NavigationRoutes } from "../../enums/NavigationRoutes.enum";
 
 interface IBookCard {
@@ -15,6 +15,7 @@ const BookCard: FC<IBookCard> = ({ book }) => {
   const { saveBook, removeBook } = useBookLibraryContext();
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   const handleButtons = (type: BookCardButtons) => {
     switch (type) {
@@ -28,12 +29,14 @@ const BookCard: FC<IBookCard> = ({ book }) => {
         removeBook(book.id);
         break;
       case BookCardButtons.CreateDiaryEntry:
-        window.open(
-          `${NavigationRoutes.ReadingDiary}/edit/${book.id}`,
-          "_self",
-          "noopener,noreferrer"
-        );
+        // window.open(
+        //   `${NavigationRoutes.ReadingDiary}/edit/${book.id}`,
+        //   "_self",
+        //   "noopener,noreferrer"
+        // );
         // saveReadingDiary(book.id);
+        // NOTE - A formatação abaixo impede um falso erro
+        navigate(NavigationRoutes.ReadingDiary + "/edit/" + book.id);
         break;
       default:
         break;
