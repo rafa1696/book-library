@@ -90,6 +90,7 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
 
   useEffect(() => {
     getSavedBooks();
+    getReadingDiary();
   }, []);
 
   return (
