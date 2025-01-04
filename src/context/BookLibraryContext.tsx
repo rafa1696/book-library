@@ -1,23 +1,24 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useState } from "react";
+import { ReadingDiaryEntry } from "../types/ReadingDiaryEntry.type";
 
 type ContextProviderProps = {
   children: React.ReactNode;
 };
 
 interface IBookLibraryContext {
-  readingDiary: string[];
+  readingDiary: ReadingDiaryEntry[];
   removeBook: (bookId: string) => void;
   saveBook: (bookId: string) => void;
   savedBooks: string[];
-  saveReadingDiary: (diaryEntryId: string) => void;
+  saveReadingDiary: (diaryEntry: ReadingDiaryEntry) => void;
 }
 
 const BookLibraryContext = createContext({} as IBookLibraryContext);
 
 export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
   const [savedBooks, setSavedBooks] = useState<string[]>([]);
-  const [readingDiary, setReadingDiary] = useState<string[]>([]);
+  const [readingDiary, setReadingDiary] = useState<ReadingDiaryEntry[]>([]);
 
   const getSavedBooks = () => {
     const books = localStorage.getItem("books");
@@ -70,20 +71,18 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
     return setReadingDiary([]);
   };
 
-  const saveReadingDiary = (diaryEntryId: string) => {
+  const saveReadingDiary = (entry: ReadingDiaryEntry) => {
     const diary = localStorage.getItem("readingDiary");
 
     if (diary) {
       const parsedDiary = JSON.parse(diary);
-
-      if (parsedDiary.includes(diaryEntryId.toString())) return;
-
-      localStorage.setItem(
-        "readingDiary",
-        JSON.stringify([...parsedDiary, diaryEntryId])
+      const updatedDiary = parsedDiary.map((e: ReadingDiaryEntry) =>
+        e.id === entry.id ? entry : e
       );
+
+      localStorage.setItem("readingDiary", JSON.stringify(updatedDiary));
     } else {
-      localStorage.setItem("readingDiary", JSON.stringify([diaryEntryId]));
+      localStorage.setItem("readingDiary", JSON.stringify([entry]));
     }
 
     getReadingDiary();

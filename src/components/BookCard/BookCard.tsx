@@ -27,6 +27,14 @@ const BookCard: FC<IBookCard> = ({ book }) => {
       case BookCardButtons.RemoveFromLibrary:
         removeBook(book.id);
         break;
+      case BookCardButtons.CreateDiaryEntry:
+        window.open(
+          `${NavigationRoutes.ReadingDiary}/edit/${book.id}`,
+          "_self",
+          "noopener,noreferrer"
+        );
+        // saveReadingDiary(book.id);
+        break;
       default:
         break;
     }
@@ -62,6 +70,14 @@ const BookCard: FC<IBookCard> = ({ book }) => {
         >
           Comprar
         </button>
+        {location.pathname === NavigationRoutes.MyBooks && (
+          <button
+            onClick={() => handleButtons(BookCardButtons.CreateDiaryEntry)}
+            className={styles.container_textsDiv__CreateDiaryEntryButton}
+          >
+            Escrever Diário
+          </button>
+        )}
         {location.pathname === NavigationRoutes.MyBooks ? (
           <button
             onClick={() => handleButtons(BookCardButtons.RemoveFromLibrary)}
