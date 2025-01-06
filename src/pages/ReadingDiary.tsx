@@ -10,6 +10,8 @@ const ReadingDiary = () => {
       <section>
         <ul>
           {readingDiary.map((entry) => (
+            // TODO - Criar cartão para exibir as entradas
+            // TODO - Exibir foto ou título do livro para agrupar. Colocar galeria com filtros.
             <li key={entry.id}>
               <h2>{entry.title}</h2>
               <p>{entry.entry}</p>
