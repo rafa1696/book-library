@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useBookLibraryContext } from "../../context/BookLibraryContext";
 import { ReadingDiaryEntry } from "../../types/ReadingDiaryEntry.type";
 import { returnRandomNumber } from "../../utils/returnRandomNumber";
@@ -7,12 +7,18 @@ import styles from "./DiaryEntry.module.css";
 
 const DiaryEntry = () => {
   const { diaryEntryId } = useParams<{ diaryEntryId: string }>();
+  const [searchParams] = useSearchParams();
+
+  const bookPicture = searchParams.get("bookPicture") || "";
+
   const { readingDiary, saveReadingDiary } = useBookLibraryContext();
   const [entry, setEntry] = useState<ReadingDiaryEntry | null>(null);
 
   const [entryTitle, setEntryTitle] = useState("");
   const [entryText, setEntryText] = useState("");
   const navigate = useNavigate();
+
+  console.log("bookPicture", searchParams);
 
   useEffect(() => {
     const foundEntry =
@@ -21,6 +27,7 @@ const DiaryEntry = () => {
     if (foundEntry) {
       setEntry(foundEntry);
       setEntryText(foundEntry.entry);
+      setEntryTitle(foundEntry.title);
     } else {
       if (diaryEntryId) {
         setEntry({
@@ -29,10 +36,11 @@ const DiaryEntry = () => {
           associatedBooks: [diaryEntryId],
           entry: "",
           timestamp: Date.now(),
+          associatedBooksImages: [bookPicture],
         });
       }
     }
-  }, [diaryEntryId, readingDiary]);
+  }, [diaryEntryId, readingDiary, bookPicture]);
 
   const handleSave = () => {
     // TODO - Trocar nome de entry para diaryEntryText ou algo parecido

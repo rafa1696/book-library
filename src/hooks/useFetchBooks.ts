@@ -1,5 +1,5 @@
 import { useQueries } from "react-query";
-import baseApi from "./baseApi";
+import baseApi from "../api/baseApi";
 import { GoogleBookVolumes } from "../types/GoogleBookVolumes.type";
 
 type UseFetchBooksProps = {

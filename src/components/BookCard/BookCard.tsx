@@ -6,6 +6,7 @@ import { truncateText } from "../../utils/truncateText";
 import { useBookLibraryContext } from "../../context/BookLibraryContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import { NavigationRoutes } from "../../enums/NavigationRoutes.enum";
+import { createBookPictureForDiary } from "../../utils/createBookCoverForDiary";
 
 interface IBookCard {
   book: GoogleBookVolumes;
@@ -18,6 +19,14 @@ const BookCard: FC<IBookCard> = ({ book }) => {
   const navigate = useNavigate();
 
   const handleButtons = (type: BookCardButtons) => {
+    // const createBookPicture = () => {
+    //   if (book.volumeInfo?.imageLinks?.thumbnail) {
+    //     return `?bookPicture=${encodeURIComponent(
+    //       book.volumeInfo?.imageLinks?.thumbnail
+    //     )}`;
+    //   } else return "";
+    // };
+
     switch (type) {
       case BookCardButtons.ProductPage:
         window.open(book.volumeInfo.infoLink, "_blank", "noopener,noreferrer");
@@ -29,14 +38,13 @@ const BookCard: FC<IBookCard> = ({ book }) => {
         removeBook(book.id);
         break;
       case BookCardButtons.CreateDiaryEntry:
-        // window.open(
-        //   `${NavigationRoutes.ReadingDiary}/edit/${book.id}`,
-        //   "_self",
-        //   "noopener,noreferrer"
-        // );
-        // saveReadingDiary(book.id);
         // NOTE - A formatação abaixo impede um falso erro
-        navigate(NavigationRoutes.ReadingDiary + "/edit/" + book.id);
+        navigate(
+          NavigationRoutes.ReadingDiary +
+            "/edit/" +
+            book.id +
+            createBookPictureForDiary(book.volumeInfo?.imageLinks?.thumbnail)
+        );
         break;
       default:
         break;
@@ -44,7 +52,7 @@ const BookCard: FC<IBookCard> = ({ book }) => {
   };
 
   return (
-    <section className={styles.container}>
+    <article className={styles.container}>
       <span
         onClick={() => handleButtons(BookCardButtons.ProductPage)}
         className={styles.container_imageDiv}
@@ -99,7 +107,7 @@ const BookCard: FC<IBookCard> = ({ book }) => {
           </button>
         )}
       </div>
-    </section>
+    </article>
   );
 };
 

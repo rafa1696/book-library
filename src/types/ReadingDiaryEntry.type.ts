@@ -1,7 +1,8 @@
 export type ReadingDiaryEntry = {
-  id: string | number;
-  title: string;
   associatedBooks: string[];
+  associatedBooksImages: string[];
   entry: string;
+  id: string | number;
   timestamp: number;
+  title: string;
 };

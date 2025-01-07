@@ -1,4 +1,4 @@
-import { useFetchBooks } from "../api/fetchMultipleBooks";
+import { useFetchBooks } from "../hooks/useFetchBooks";
 import BookCard from "../components/BookCard/BookCard";
 import BookGallery from "../components/BookGallery/BookGallery";
 import { useBookLibraryContext } from "../context/BookLibraryContext";
@@ -21,6 +21,8 @@ const MyBooks = () => {
       <BookGallery>
         {myBooksQuery.map((query, index) => {
           const { data, isError } = query;
+
+          // TODO - Implementar mensagem de erro dentro do cartão do livro
 
           if (isError) {
             return <li key={index}>Erro ao carregar livro.</li>;
