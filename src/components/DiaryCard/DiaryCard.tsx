@@ -1,8 +1,9 @@
 import { FC } from "react";
 import { ReadingDiaryEntry } from "../../types/ReadingDiaryEntry.type";
 import styles from "./DiaryCard.module.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { truncateText } from "../../utils/truncateText";
+import { useBookLibraryContext } from "../../context/BookLibraryContext";
 
 interface IDiaryCard {
   diaryEntry: ReadingDiaryEntry;
@@ -10,6 +11,8 @@ interface IDiaryCard {
 
 const DiaryCard: FC<IDiaryCard> = ({ diaryEntry }) => {
   console.log("diaryEntry", diaryEntry);
+  const navigate = useNavigate();
+  const { removeReadingDiaryEntry } = useBookLibraryContext();
 
   return (
     <article className={styles.container}>
@@ -32,12 +35,18 @@ const DiaryCard: FC<IDiaryCard> = ({ diaryEntry }) => {
             ? truncateText(diaryEntry.entry, 100)
             : diaryEntry.entry}
         </p>
-        <Link
+        <button
           className={styles.container_textDiv__editLink}
-          to={`/reading-diary/edit/${diaryEntry.id}`}
+          onClick={() => navigate("/reading-diary/edit/" + diaryEntry.id)}
         >
           Editar
-        </Link>
+        </button>
+        <button
+          onClick={() => removeReadingDiaryEntry(diaryEntry.id)}
+          className={styles.container_textDiv__deleteLink}
+        >
+          Remover Entrada
+        </button>
       </span>
     </article>
   );

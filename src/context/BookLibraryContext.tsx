@@ -12,6 +12,7 @@ interface IBookLibraryContext {
   saveBook: (bookId: string) => void;
   savedBooks: string[];
   saveReadingDiary: (diaryEntry: ReadingDiaryEntry) => void;
+  removeReadingDiaryEntry: (entryId: string | number) => void;
 }
 
 const BookLibraryContext = createContext({} as IBookLibraryContext);
@@ -99,13 +100,26 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
       );
 
       localStorage.setItem("readingDiary", JSON.stringify(updatedDiary));
-      // localStorage.setItem(
-      //   "readingDiary",
-      //   JSON.stringify([...parsedDiary, entry])
-      // );
     } else {
       localStorage.setItem("readingDiary", JSON.stringify([entry]));
     }
+
+    getReadingDiary();
+  };
+
+  const removeReadingDiaryEntry = (entryId: string) => {
+    const diary = localStorage.getItem("readingDiary");
+
+    if (!diary) return;
+
+    const parsedDiary = JSON.parse(diary);
+
+    localStorage.setItem(
+      "readingDiary",
+      JSON.stringify(
+        parsedDiary.filter((entry: ReadingDiaryEntry) => entry.id !== entryId)
+      )
+    );
 
     getReadingDiary();
   };
@@ -123,6 +137,7 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
         removeBook,
         readingDiary,
         saveReadingDiary,
+        removeReadingDiaryEntry,
       }}
     >
       {children}
