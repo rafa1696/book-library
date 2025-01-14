@@ -19,20 +19,16 @@ const BookCard: FC<IBookCard> = ({ book }) => {
   const navigate = useNavigate();
 
   const handleButtons = (type: BookCardButtons) => {
-    // const createBookPicture = () => {
-    //   if (book.volumeInfo?.imageLinks?.thumbnail) {
-    //     return `?bookPicture=${encodeURIComponent(
-    //       book.volumeInfo?.imageLinks?.thumbnail
-    //     )}`;
-    //   } else return "";
-    // };
-
     switch (type) {
       case BookCardButtons.ProductPage:
         window.open(book.volumeInfo.infoLink, "_blank", "noopener,noreferrer");
         break;
       case BookCardButtons.AddToLibrary:
-        saveBook(book.id);
+        saveBook({
+          bookName: book.volumeInfo.title,
+          id: book.id,
+          bookAddDate: Date.now(),
+        });
         break;
       case BookCardButtons.RemoveFromLibrary:
         removeBook(book.id);
