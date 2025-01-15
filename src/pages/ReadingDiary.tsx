@@ -11,6 +11,7 @@ const ReadingDiary = () => {
         <ul>
           {readingDiary.map((entry) => (
             // TODO - Exibir foto ou título do livro para agrupar. Colocar galeria com filtros.
+            // TODO - Filtrar por livro
             <li key={entry.id}>
               <DiaryCard diaryEntry={entry} />
             </li>
