@@ -1,6 +1,6 @@
 import { useState } from "react";
 import BookCard from "../components/BookCard/BookCard";
-import BookGallery from "../components/BookGallery/BookGallery";
+import BookGallery from "../components/Gallery/Gallery";
 import { useBooks } from "../hooks/useBooks";
 import { GoogleBookVolumes } from "../types/GoogleBookVolumes.type";
 import SearchFunction from "../components/SearchFunction";

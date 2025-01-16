@@ -1,6 +1,10 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useState } from "react";
 import { ReadingDiaryEntry } from "../types/ReadingDiaryEntry.type";
+import { BookInfo } from "../types/BookInfo.type";
+import { FilterTypes } from "../enums/FilterTypes.enum";
+import filterEntries from "../utils/filterEntries";
+import { ContentType } from "../enums/ContentType.enum";
 
 type ContextProviderProps = {
   children: React.ReactNode;
@@ -9,8 +13,9 @@ type ContextProviderProps = {
 interface IBookLibraryContext {
   readingDiary: ReadingDiaryEntry[];
   removeBook: (bookId: string) => void;
-  saveBook: (bookId: string) => void;
-  savedBooks: string[];
+  saveBook: (bookInfo: BookInfo) => void;
+  savedBooks: BookInfo[];
+  reorderEntries: (filterType: FilterTypes, contentType: ContentType) => void;
   saveReadingDiary: (diaryEntry: ReadingDiaryEntry) => void;
   removeReadingDiaryEntry: (entryId: string | number) => void;
 }
@@ -18,7 +23,7 @@ interface IBookLibraryContext {
 const BookLibraryContext = createContext({} as IBookLibraryContext);
 
 export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
-  const [savedBooks, setSavedBooks] = useState<string[]>([]);
+  const [savedBooks, setSavedBooks] = useState<BookInfo[]>([]);
   const [readingDiary, setReadingDiary] = useState<ReadingDiaryEntry[]>([]);
 
   const getSavedBooks = () => {
@@ -31,17 +36,17 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
     return setSavedBooks([]);
   };
 
-  const saveBook = (bookId: string) => {
+  const saveBook = (bookInfo: BookInfo) => {
     const books = localStorage.getItem("books");
 
     if (books) {
       const parsedBooks = JSON.parse(books);
 
-      if (parsedBooks.includes(bookId.toString())) return;
+      if (parsedBooks.includes(bookInfo.id.toString())) return;
 
-      localStorage.setItem("books", JSON.stringify([...parsedBooks, bookId]));
+      localStorage.setItem("books", JSON.stringify([...parsedBooks, bookInfo]));
     } else {
-      localStorage.setItem("books", JSON.stringify([bookId]));
+      localStorage.setItem("books", JSON.stringify([bookInfo]));
     }
 
     getSavedBooks();
@@ -56,10 +61,44 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
 
     localStorage.setItem(
       "books",
-      JSON.stringify(parsedBooks.filter((book: string) => book !== bookId))
+      JSON.stringify(parsedBooks.filter((book: BookInfo) => book.id !== bookId))
     );
 
     getSavedBooks();
+  };
+
+  const reorderEntries = (
+    filterType: FilterTypes,
+    contentType: ContentType
+  ) => {
+    switch (contentType) {
+      case ContentType.Book: {
+        const books = localStorage.getItem("books");
+
+        if (books) {
+          const parsedBooks = JSON.parse(books);
+          const sortedBooks = filterEntries(parsedBooks, filterType);
+
+          localStorage.setItem("books", JSON.stringify(sortedBooks));
+          getSavedBooks();
+        }
+        break;
+      }
+      case ContentType.DiaryEntry: {
+        const diary = localStorage.getItem("readingDiary");
+
+        if (diary) {
+          const parsedDiary = JSON.parse(diary);
+          const sortedDiary = filterEntries(parsedDiary, filterType);
+
+          localStorage.setItem("readingDiary", JSON.stringify(sortedDiary));
+          getReadingDiary();
+        }
+        break;
+      }
+      default:
+        break;
+    }
   };
 
   const getReadingDiary = () => {
@@ -75,7 +114,7 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
   const saveReadingDiary = (entry: ReadingDiaryEntry) => {
     const diary = localStorage.getItem("readingDiary");
 
-    console.log("save entry", entry);
+    // console.log("save entry", entry);
 
     if (diary) {
       const parsedDiary = JSON.parse(diary);
@@ -107,7 +146,7 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
     getReadingDiary();
   };
 
-  const removeReadingDiaryEntry = (entryId: string) => {
+  const removeReadingDiaryEntry = (entryId: string | number) => {
     const diary = localStorage.getItem("readingDiary");
 
     if (!diary) return;
@@ -138,6 +177,7 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
         readingDiary,
         saveReadingDiary,
         removeReadingDiaryEntry,
+        reorderEntries,
       }}
     >
       {children}

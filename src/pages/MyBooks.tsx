@@ -1,12 +1,21 @@
 import { useFetchBooks } from "../hooks/useFetchBooks";
 import BookCard from "../components/BookCard/BookCard";
-import BookGallery from "../components/BookGallery/BookGallery";
+import Gallery from "../components/Gallery/Gallery";
 import { useBookLibraryContext } from "../context/BookLibraryContext";
+import GalleryFilter from "../components/GalleryFilter/GalleryFilter";
+import { FilterTypes } from "../enums/FilterTypes.enum";
+import { ContentType } from "../enums/ContentType.enum";
 
 const MyBooks = () => {
-  const { savedBooks } = useBookLibraryContext();
+  const { savedBooks, reorderEntries } = useBookLibraryContext();
 
-  const myBooksQuery = useFetchBooks({ ids: savedBooks });
+  const myBooksQuery = useFetchBooks({
+    ids: savedBooks.map((book) => book.id),
+  });
+
+  const handleFilterChange = (filterType: FilterTypes) => {
+    reorderEntries(filterType, ContentType.Book);
+  };
 
   if (myBooksQuery.some((query) => query.isLoading)) {
     return <div>Carregando livros...</div>;
@@ -18,8 +27,10 @@ const MyBooks = () => {
 
   return (
     <>
-      <BookGallery>
-        {myBooksQuery.map((query, index) => {
+      <h1>Meus Livros</h1>
+      <GalleryFilter onFilterChange={handleFilterChange} />
+      <Gallery>
+        {myBooksQuery?.map((query, index) => {
           const { data, isError } = query;
 
           // TODO - Implementar mensagem de erro dentro do cartão do livro
@@ -36,7 +47,7 @@ const MyBooks = () => {
             )
           );
         })}
-      </BookGallery>
+      </Gallery>
     </>
   );
 };
