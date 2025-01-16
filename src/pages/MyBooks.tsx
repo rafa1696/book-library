@@ -1,19 +1,20 @@
 import { useFetchBooks } from "../hooks/useFetchBooks";
 import BookCard from "../components/BookCard/BookCard";
-import BookGallery from "../components/BookGallery/BookGallery";
+import Gallery from "../components/Gallery/Gallery";
 import { useBookLibraryContext } from "../context/BookLibraryContext";
 import GalleryFilter from "../components/GalleryFilter/GalleryFilter";
 import { FilterTypes } from "../enums/FilterTypes.enum";
+import { ContentType } from "../enums/ContentType.enum";
 
 const MyBooks = () => {
-  const { savedBooks, reorderBooks } = useBookLibraryContext();
+  const { savedBooks, reorderEntries } = useBookLibraryContext();
 
   const myBooksQuery = useFetchBooks({
     ids: savedBooks.map((book) => book.id),
   });
 
   const handleFilterChange = (filterType: FilterTypes) => {
-    reorderBooks(filterType);
+    reorderEntries(filterType, ContentType.Book);
   };
 
   if (myBooksQuery.some((query) => query.isLoading)) {
@@ -26,8 +27,9 @@ const MyBooks = () => {
 
   return (
     <>
+      <h1>Meus Livros</h1>
       <GalleryFilter onFilterChange={handleFilterChange} />
-      <BookGallery>
+      <Gallery>
         {myBooksQuery?.map((query, index) => {
           const { data, isError } = query;
 
@@ -45,7 +47,7 @@ const MyBooks = () => {
             )
           );
         })}
-      </BookGallery>
+      </Gallery>
     </>
   );
 };

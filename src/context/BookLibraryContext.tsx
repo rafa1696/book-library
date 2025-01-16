@@ -4,6 +4,7 @@ import { ReadingDiaryEntry } from "../types/ReadingDiaryEntry.type";
 import { BookInfo } from "../types/BookInfo.type";
 import { FilterTypes } from "../enums/FilterTypes.enum";
 import filterEntries from "../utils/filterEntries";
+import { ContentType } from "../enums/ContentType.enum";
 
 type ContextProviderProps = {
   children: React.ReactNode;
@@ -14,7 +15,7 @@ interface IBookLibraryContext {
   removeBook: (bookId: string) => void;
   saveBook: (bookInfo: BookInfo) => void;
   savedBooks: BookInfo[];
-  reorderBooks: (filterType: FilterTypes) => void;
+  reorderEntries: (filterType: FilterTypes, contentType: ContentType) => void;
   saveReadingDiary: (diaryEntry: ReadingDiaryEntry) => void;
   removeReadingDiaryEntry: (entryId: string | number) => void;
 }
@@ -66,15 +67,37 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
     getSavedBooks();
   };
 
-  const reorderBooks = (filterType: FilterTypes) => {
-    const books = localStorage.getItem("books");
+  const reorderEntries = (
+    filterType: FilterTypes,
+    contentType: ContentType
+  ) => {
+    switch (contentType) {
+      case ContentType.Book: {
+        const books = localStorage.getItem("books");
 
-    if (books) {
-      const parsedBooks = JSON.parse(books);
-      const sortedBooks = filterEntries(parsedBooks, filterType);
+        if (books) {
+          const parsedBooks = JSON.parse(books);
+          const sortedBooks = filterEntries(parsedBooks, filterType);
 
-      localStorage.setItem("books", JSON.stringify(sortedBooks));
-      getSavedBooks();
+          localStorage.setItem("books", JSON.stringify(sortedBooks));
+          getSavedBooks();
+        }
+        break;
+      }
+      case ContentType.DiaryEntry: {
+        const diary = localStorage.getItem("readingDiary");
+
+        if (diary) {
+          const parsedDiary = JSON.parse(diary);
+          const sortedDiary = filterEntries(parsedDiary, filterType);
+
+          localStorage.setItem("readingDiary", JSON.stringify(sortedDiary));
+          getReadingDiary();
+        }
+        break;
+      }
+      default:
+        break;
     }
   };
 
@@ -91,7 +114,7 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
   const saveReadingDiary = (entry: ReadingDiaryEntry) => {
     const diary = localStorage.getItem("readingDiary");
 
-    console.log("save entry", entry);
+    // console.log("save entry", entry);
 
     if (diary) {
       const parsedDiary = JSON.parse(diary);
@@ -154,7 +177,7 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
         readingDiary,
         saveReadingDiary,
         removeReadingDiaryEntry,
-        reorderBooks,
+        reorderEntries,
       }}
     >
       {children}

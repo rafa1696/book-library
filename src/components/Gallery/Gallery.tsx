@@ -1,11 +1,11 @@
 import { FC } from "react";
-import styles from "./BookGallery.module.css";
+import styles from "./Gallery.module.css";
 
-interface IBookGallery {
+interface IGallery {
   children: React.ReactNode;
 }
 
-const BookGallery: FC<IBookGallery> = ({ children }) => {
+const Gallery: FC<IGallery> = ({ children }) => {
   return (
     <section className={styles.container}>
       <ul>{children}</ul>
@@ -13,4 +13,4 @@ const BookGallery: FC<IBookGallery> = ({ children }) => {
   );
 };
 
-export default BookGallery;
+export default Gallery;
