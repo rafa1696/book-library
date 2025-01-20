@@ -4,6 +4,8 @@ import BookGallery from "../components/Gallery/Gallery";
 import { useBooks } from "../hooks/useBooks";
 import { GoogleBookVolumes } from "../types/GoogleBookVolumes.type";
 import SearchFunction from "../components/SearchFunction";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const Search = () => {
   const [query, setQuery] = useState("");
@@ -13,7 +15,11 @@ const Search = () => {
     <div>
       <SearchFunction onSearch={setQuery} />
 
-      {isLoading && <p>Carregando...</p>}
+      {isLoading && (
+        <div>
+          <Skeleton height={"100vh"} />
+        </div>
+      )}
       {isError && <p>Ocorreu um erro. Tente novamente.</p>}
 
       <BookGallery>
