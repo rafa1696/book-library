@@ -5,6 +5,8 @@ import { useBookLibraryContext } from "../context/BookLibraryContext";
 import GalleryFilter from "../components/GalleryFilter/GalleryFilter";
 import { FilterTypes } from "../enums/FilterTypes.enum";
 import { ContentType } from "../enums/ContentType.enum";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const MyBooks = () => {
   const { savedBooks, reorderEntries } = useBookLibraryContext();
@@ -18,7 +20,11 @@ const MyBooks = () => {
   };
 
   if (myBooksQuery.some((query) => query.isLoading)) {
-    return <div>Carregando livros...</div>;
+    return (
+      <div>
+        <Skeleton height={"100vh"} />
+      </div>
+    );
   }
 
   if (myBooksQuery.some((query) => query.isError)) {
