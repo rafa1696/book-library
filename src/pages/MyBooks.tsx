@@ -7,16 +7,34 @@ import { FilterTypes } from "../enums/FilterTypes.enum";
 import { ContentType } from "../enums/ContentType.enum";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { NavigationRoutes } from "../enums/NavigationRoutes.enum";
+import { FC } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-const MyBooks = () => {
+const MyBooks: FC = () => {
+  const location = useLocation();
   const { savedBooks, reorderEntries } = useBookLibraryContext();
 
   const myBooksQuery = useFetchBooks({
-    ids: savedBooks.map((book) => book.id),
+    ids:
+      location.pathname === NavigationRoutes.Home
+        ? savedBooks.slice(0, 4).map((book) => book.id)
+        : savedBooks.map((book) => book.id),
   });
 
   const handleFilterChange = (filterType: FilterTypes) => {
     reorderEntries(filterType, ContentType.Book);
+  };
+
+  const returnTitle = () => {
+    switch (location.pathname) {
+      case NavigationRoutes.MyBooks:
+        return <h1>Meus Livros</h1>;
+      case NavigationRoutes.Home:
+        return null;
+      default:
+        break;
+    }
   };
 
   if (myBooksQuery.some((query) => query.isLoading)) {
@@ -33,8 +51,10 @@ const MyBooks = () => {
 
   return (
     <>
-      <h1>Meus Livros</h1>
-      <GalleryFilter onFilterChange={handleFilterChange} />
+      {returnTitle()}
+      {location.pathname === NavigationRoutes.MyBooks && (
+        <GalleryFilter onFilterChange={handleFilterChange} />
+      )}
       <Gallery>
         {myBooksQuery?.map((query, index) => {
           const { data, isError } = query;
@@ -53,6 +73,9 @@ const MyBooks = () => {
             )
           );
         })}
+        {location.pathname === NavigationRoutes.Home && (
+          <Link to={NavigationRoutes.MyBooks}>Ver todos</Link>
+        )}
       </Gallery>
     </>
   );

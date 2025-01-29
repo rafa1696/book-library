@@ -3,4 +3,5 @@ export enum BookCardButtons {
   AddToLibrary,
   RemoveFromLibrary,
   CreateDiaryEntry,
+  Home,
 }

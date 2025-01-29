@@ -20,6 +20,9 @@ const BookCard: FC<IBookCard> = ({ book }) => {
 
   const handleButtons = (type: BookCardButtons) => {
     switch (type) {
+      case BookCardButtons.Home:
+        navigate(NavigationRoutes.MyBooks);
+        break;
       case BookCardButtons.ProductPage:
         window.open(book.volumeInfo.infoLink, "_blank", "noopener,noreferrer");
         break;
@@ -47,10 +50,24 @@ const BookCard: FC<IBookCard> = ({ book }) => {
     }
   };
 
+  //  TODO - executar scroll até elemento quando clicar na Home
+
   return (
-    <article className={styles.container}>
+    <article
+      onClick={() => {
+        if (location.pathname === NavigationRoutes.Home)
+          handleButtons(BookCardButtons.Home);
+      }}
+      className={[
+        styles.container,
+        location.pathname === NavigationRoutes.Home && styles.isOnHome,
+      ].join(" ")}
+    >
       <span
-        onClick={() => handleButtons(BookCardButtons.ProductPage)}
+        onClick={() => {
+          if (location.pathname !== NavigationRoutes.Home)
+            handleButtons(BookCardButtons.ProductPage);
+        }}
         className={styles.container_imageDiv}
       >
         {book.volumeInfo.imageLinks?.thumbnail ? (
@@ -71,12 +88,14 @@ const BookCard: FC<IBookCard> = ({ book }) => {
             {truncateText(book?.volumeInfo?.authors?.join(", "), 40)}
           </h4>
         )}
-        <button
-          onClick={() => handleButtons(BookCardButtons.ProductPage)}
-          className={styles.container_textsDiv__productPageButton}
-        >
-          Comprar
-        </button>
+        {location.pathname === NavigationRoutes.Home ? null : (
+          <button
+            onClick={() => handleButtons(BookCardButtons.ProductPage)}
+            className={styles.container_textsDiv__productPageButton}
+          >
+            Comprar
+          </button>
+        )}
         {location.pathname === NavigationRoutes.MyBooks && (
           <button
             onClick={() => handleButtons(BookCardButtons.CreateDiaryEntry)}
@@ -85,7 +104,9 @@ const BookCard: FC<IBookCard> = ({ book }) => {
             Escrever Diário
           </button>
         )}
-        {location.pathname === NavigationRoutes.MyBooks ? (
+        {location.pathname ===
+        NavigationRoutes.Home ? null : location.pathname ===
+          NavigationRoutes.MyBooks ? (
           <button
             onClick={() => handleButtons(BookCardButtons.RemoveFromLibrary)}
             className={

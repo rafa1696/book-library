@@ -4,6 +4,10 @@
   max-width: 375px;
   min-height: 190px;
 
+  &.isOnHome {
+    flex-direction: column;
+  }
+
   .container_imageDiv {
     border-radius: 4px;
     cursor: pointer;

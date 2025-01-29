@@ -7,3 +7,14 @@
     margin-bottom: 1rem;
   }
 }
+
+.isOnHome ul {
+  flex-direction: row;
+  margin-bottom: 0;
+  max-width: 100%;
+  overflow-x: auto;
+
+  li {
+    margin: 0 1rem;
+  }
+}
