@@ -21,7 +21,7 @@ const BookCard: FC<IBookCard> = ({ book }) => {
   const handleButtons = (type: BookCardButtons) => {
     switch (type) {
       case BookCardButtons.Home:
-        navigate(NavigationRoutes.MyBooks);
+        navigate(NavigationRoutes.MyBooks + "/?bookId=" + book.id);
         break;
       case BookCardButtons.ProductPage:
         window.open(book.volumeInfo.infoLink, "_blank", "noopener,noreferrer");
@@ -58,6 +58,7 @@ const BookCard: FC<IBookCard> = ({ book }) => {
         if (location.pathname === NavigationRoutes.Home)
           handleButtons(BookCardButtons.Home);
       }}
+      book-id-data={book.id}
       className={[
         styles.container,
         location.pathname === NavigationRoutes.Home && styles.isOnHome,

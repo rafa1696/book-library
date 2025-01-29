@@ -8,16 +8,23 @@ import { ContentType } from "../enums/ContentType.enum";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { NavigationRoutes } from "../enums/NavigationRoutes.enum";
-import { FC } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { FC, useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { locationCheck } from "../utils/locationCheck";
 
 const MyBooks: FC = () => {
-  const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const [hasRun, setHasRun] = useState(false);
+
+  const checkForLocation = locationCheck();
+
+  const bookIdFromHome = searchParams.get("bookId") || "";
+
   const { savedBooks, reorderEntries } = useBookLibraryContext();
 
   const myBooksQuery = useFetchBooks({
     ids:
-      location.pathname === NavigationRoutes.Home
+      checkForLocation === 0
         ? savedBooks.slice(0, 4).map((book) => book.id)
         : savedBooks.map((book) => book.id),
   });
@@ -27,15 +34,26 @@ const MyBooks: FC = () => {
   };
 
   const returnTitle = () => {
-    switch (location.pathname) {
-      case NavigationRoutes.MyBooks:
+    switch (checkForLocation) {
+      case 1:
         return <h1>Meus Livros</h1>;
-      case NavigationRoutes.Home:
+      case 0:
         return null;
       default:
         break;
     }
   };
+
+  useEffect(() => {
+    if (bookIdFromHome && hasRun === true) {
+      const elementToScroll = document.querySelector(
+        `[book-id-data="${bookIdFromHome}"]`
+      );
+
+      if (elementToScroll)
+        elementToScroll.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [hasRun, bookIdFromHome]);
 
   if (myBooksQuery.some((query) => query.isLoading)) {
     return (
@@ -49,10 +67,18 @@ const MyBooks: FC = () => {
     return <div>Erro ao carregar alguns livros.</div>;
   }
 
+  if (
+    !hasRun &&
+    checkForLocation === 1 &&
+    myBooksQuery.some((query) => query.data?.id === bookIdFromHome)
+  ) {
+    setHasRun(true);
+  }
+
   return (
     <>
       {returnTitle()}
-      {location.pathname === NavigationRoutes.MyBooks && (
+      {checkForLocation === 1 && (
         <GalleryFilter onFilterChange={handleFilterChange} />
       )}
       <Gallery>
@@ -73,7 +99,7 @@ const MyBooks: FC = () => {
             )
           );
         })}
-        {location.pathname === NavigationRoutes.Home && (
+        {checkForLocation === 0 && (
           <Link to={NavigationRoutes.MyBooks}>Ver todos</Link>
         )}
       </Gallery>
