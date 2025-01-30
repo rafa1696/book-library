@@ -1,20 +1,19 @@
 import { FC } from "react";
 import styles from "./Gallery.module.css";
-import { useLocation } from "react-router-dom";
-import { NavigationRoutes } from "../../enums/NavigationRoutes.enum";
+import { locationCheck } from "../../utils/locationCheck";
 
 interface IGallery {
   children: React.ReactNode;
 }
 
 const Gallery: FC<IGallery> = ({ children }) => {
-  const location = useLocation();
+  const checkForLocation = locationCheck();
 
   return (
     <section
       className={[
         styles.container,
-        location.pathname === NavigationRoutes.Home && styles.isOnHome,
+        checkForLocation === 0 && styles.isOnHome,
       ].join(" ")}
     >
       <ul>{children}</ul>

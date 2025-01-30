@@ -1,7 +1,6 @@
 import { NavigationRoutes } from "../enums/NavigationRoutes.enum";
 
 export const locationCheck = () => {
-  // console.log("locationCheck", location.pathname);
   if (location.pathname.split("/").includes(NavigationRoutes.Home)) {
     return 0;
   }

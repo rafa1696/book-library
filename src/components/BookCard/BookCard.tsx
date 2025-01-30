@@ -4,9 +4,10 @@ import { GoogleBookVolumes } from "../../types/GoogleBookVolumes.type";
 import { BookCardButtons } from "../../enums/BookCardButtons.enum";
 import { truncateText } from "../../utils/truncateText";
 import { useBookLibraryContext } from "../../context/BookLibraryContext";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { NavigationRoutes } from "../../enums/NavigationRoutes.enum";
 import { createBookPictureForDiary } from "../../utils/createBookCoverForDiary";
+import { locationCheck } from "../../utils/locationCheck";
 
 interface IBookCard {
   book: GoogleBookVolumes;
@@ -14,8 +15,8 @@ interface IBookCard {
 
 const BookCard: FC<IBookCard> = ({ book }) => {
   const { saveBook, removeBook } = useBookLibraryContext();
+  const checkForLocation = locationCheck();
 
-  const location = useLocation();
   const navigate = useNavigate();
 
   const handleButtons = (type: BookCardButtons) => {
@@ -50,23 +51,20 @@ const BookCard: FC<IBookCard> = ({ book }) => {
     }
   };
 
-  //  TODO - executar scroll até elemento quando clicar na Home
-
   return (
     <article
       onClick={() => {
-        if (location.pathname === NavigationRoutes.Home)
-          handleButtons(BookCardButtons.Home);
+        if (checkForLocation === 0) handleButtons(BookCardButtons.Home);
       }}
       book-id-data={book.id}
       className={[
         styles.container,
-        location.pathname === NavigationRoutes.Home && styles.isOnHome,
+        checkForLocation === 0 && styles.isOnHome,
       ].join(" ")}
     >
       <span
         onClick={() => {
-          if (location.pathname !== NavigationRoutes.Home)
+          if (checkForLocation !== 0)
             handleButtons(BookCardButtons.ProductPage);
         }}
         className={styles.container_imageDiv}
@@ -89,7 +87,7 @@ const BookCard: FC<IBookCard> = ({ book }) => {
             {truncateText(book?.volumeInfo?.authors?.join(", "), 40)}
           </h4>
         )}
-        {location.pathname === NavigationRoutes.Home ? null : (
+        {checkForLocation === 0 ? null : (
           <button
             onClick={() => handleButtons(BookCardButtons.ProductPage)}
             className={styles.container_textsDiv__productPageButton}
@@ -97,7 +95,7 @@ const BookCard: FC<IBookCard> = ({ book }) => {
             Comprar
           </button>
         )}
-        {location.pathname === NavigationRoutes.MyBooks && (
+        {checkForLocation === 1 && (
           <button
             onClick={() => handleButtons(BookCardButtons.CreateDiaryEntry)}
             className={styles.container_textsDiv__CreateDiaryEntryButton}
@@ -105,9 +103,7 @@ const BookCard: FC<IBookCard> = ({ book }) => {
             Escrever Diário
           </button>
         )}
-        {location.pathname ===
-        NavigationRoutes.Home ? null : location.pathname ===
-          NavigationRoutes.MyBooks ? (
+        {checkForLocation === 0 ? null : checkForLocation === 1 ? (
           <button
             onClick={() => handleButtons(BookCardButtons.RemoveFromLibrary)}
             className={
