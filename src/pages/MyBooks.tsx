@@ -82,23 +82,29 @@ const MyBooks: FC = () => {
         <GalleryFilter onFilterChange={handleFilterChange} />
       )}
       <Gallery>
-        {myBooksQuery?.map((query, index) => {
-          const { data, isError } = query;
+        {myBooksQuery.length > 0 ? (
+          myBooksQuery?.map((query, index) => {
+            const { data, isError } = query;
 
-          // TODO - Implementar mensagem de erro dentro do cartão do livro
+            // TODO - Implementar mensagem de erro dentro do cartão do livro
 
-          if (isError) {
-            return <li key={index}>Erro ao carregar livro.</li>;
-          }
+            if (isError) {
+              return <li key={index}>Erro ao carregar livro.</li>;
+            }
 
-          return (
-            data && (
-              <li key={data.id}>
-                <BookCard book={data} />
-              </li>
-            )
-          );
-        })}
+            return (
+              data && (
+                <li key={data.id}>
+                  <BookCard book={data} />
+                </li>
+              )
+            );
+          })
+        ) : (
+          <span>
+            Parece que não há livros em sua biblioteca, comece pesquisando!
+          </span>
+        )}
         {checkForLocation === 0 && (
           <Link to={NavigationRoutes.MyBooks}>Ver todos</Link>
         )}

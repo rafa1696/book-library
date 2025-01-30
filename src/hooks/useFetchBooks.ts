@@ -11,6 +11,8 @@ export const useFetchBooks = ({ ids }: UseFetchBooksProps) => {
     queryKey: ["book", id],
 
     queryFn: async () => {
+      if (!id) return;
+
       const response = await baseApi.get<GoogleBookVolumes>(`/volumes/${id}`);
       return response.data;
     },
