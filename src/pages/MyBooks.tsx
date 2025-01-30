@@ -7,17 +7,53 @@ import { FilterTypes } from "../enums/FilterTypes.enum";
 import { ContentType } from "../enums/ContentType.enum";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { NavigationRoutes } from "../enums/NavigationRoutes.enum";
+import { FC, useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { locationCheck } from "../utils/locationCheck";
 
-const MyBooks = () => {
+const MyBooks: FC = () => {
+  const [searchParams] = useSearchParams();
+  const [hasRun, setHasRun] = useState(false);
+
+  const checkForLocation = locationCheck();
+
+  const bookIdFromHome = searchParams.get("bookId") || "";
+
   const { savedBooks, reorderEntries } = useBookLibraryContext();
 
   const myBooksQuery = useFetchBooks({
-    ids: savedBooks.map((book) => book.id),
+    ids:
+      checkForLocation === 0
+        ? savedBooks.slice(0, 4).map((book) => book.id)
+        : savedBooks.map((book) => book.id),
   });
 
   const handleFilterChange = (filterType: FilterTypes) => {
     reorderEntries(filterType, ContentType.Book);
   };
+
+  const returnTitle = () => {
+    switch (checkForLocation) {
+      case 1:
+        return <h1>Meus Livros</h1>;
+      case 0:
+        return null;
+      default:
+        break;
+    }
+  };
+
+  useEffect(() => {
+    if (bookIdFromHome && hasRun === true) {
+      const elementToScroll = document.querySelector(
+        `[book-id-data="${bookIdFromHome}"]`
+      );
+
+      if (elementToScroll)
+        elementToScroll.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [hasRun, bookIdFromHome]);
 
   if (myBooksQuery.some((query) => query.isLoading)) {
     return (
@@ -31,28 +67,47 @@ const MyBooks = () => {
     return <div>Erro ao carregar alguns livros.</div>;
   }
 
+  if (
+    !hasRun &&
+    checkForLocation === 1 &&
+    myBooksQuery.some((query) => query.data?.id === bookIdFromHome)
+  ) {
+    setHasRun(true);
+  }
+
   return (
     <>
-      <h1>Meus Livros</h1>
-      <GalleryFilter onFilterChange={handleFilterChange} />
+      {returnTitle()}
+      {checkForLocation === 1 && (
+        <GalleryFilter onFilterChange={handleFilterChange} />
+      )}
       <Gallery>
-        {myBooksQuery?.map((query, index) => {
-          const { data, isError } = query;
+        {myBooksQuery.length > 0 ? (
+          myBooksQuery?.map((query, index) => {
+            const { data, isError } = query;
 
-          // TODO - Implementar mensagem de erro dentro do cartão do livro
+            // TODO - Implementar mensagem de erro dentro do cartão do livro
 
-          if (isError) {
-            return <li key={index}>Erro ao carregar livro.</li>;
-          }
+            if (isError) {
+              return <li key={index}>Erro ao carregar livro.</li>;
+            }
 
-          return (
-            data && (
-              <li key={data.id}>
-                <BookCard book={data} />
-              </li>
-            )
-          );
-        })}
+            return (
+              data && (
+                <li key={data.id}>
+                  <BookCard book={data} />
+                </li>
+              )
+            );
+          })
+        ) : (
+          <span>
+            Parece que não há livros em sua biblioteca, comece pesquisando!
+          </span>
+        )}
+        {checkForLocation === 0 && (
+          <Link to={NavigationRoutes.MyBooks}>Ver todos</Link>
+        )}
       </Gallery>
     </>
   );

@@ -4,9 +4,10 @@ import { GoogleBookVolumes } from "../../types/GoogleBookVolumes.type";
 import { BookCardButtons } from "../../enums/BookCardButtons.enum";
 import { truncateText } from "../../utils/truncateText";
 import { useBookLibraryContext } from "../../context/BookLibraryContext";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { NavigationRoutes } from "../../enums/NavigationRoutes.enum";
 import { createBookPictureForDiary } from "../../utils/createBookCoverForDiary";
+import { locationCheck } from "../../utils/locationCheck";
 
 interface IBookCard {
   book: GoogleBookVolumes;
@@ -14,12 +15,15 @@ interface IBookCard {
 
 const BookCard: FC<IBookCard> = ({ book }) => {
   const { saveBook, removeBook } = useBookLibraryContext();
+  const checkForLocation = locationCheck();
 
-  const location = useLocation();
   const navigate = useNavigate();
 
   const handleButtons = (type: BookCardButtons) => {
     switch (type) {
+      case BookCardButtons.Home:
+        navigate(NavigationRoutes.MyBooks + "/?bookId=" + book.id);
+        break;
       case BookCardButtons.ProductPage:
         window.open(book.volumeInfo.infoLink, "_blank", "noopener,noreferrer");
         break;
@@ -48,9 +52,21 @@ const BookCard: FC<IBookCard> = ({ book }) => {
   };
 
   return (
-    <article className={styles.container}>
+    <article
+      onClick={() => {
+        if (checkForLocation === 0) handleButtons(BookCardButtons.Home);
+      }}
+      book-id-data={book.id}
+      className={[
+        styles.container,
+        checkForLocation === 0 && styles.isOnHome,
+      ].join(" ")}
+    >
       <span
-        onClick={() => handleButtons(BookCardButtons.ProductPage)}
+        onClick={() => {
+          if (checkForLocation !== 0)
+            handleButtons(BookCardButtons.ProductPage);
+        }}
         className={styles.container_imageDiv}
       >
         {book.volumeInfo.imageLinks?.thumbnail ? (
@@ -71,13 +87,15 @@ const BookCard: FC<IBookCard> = ({ book }) => {
             {truncateText(book?.volumeInfo?.authors?.join(", "), 40)}
           </h4>
         )}
-        <button
-          onClick={() => handleButtons(BookCardButtons.ProductPage)}
-          className={styles.container_textsDiv__productPageButton}
-        >
-          Comprar
-        </button>
-        {location.pathname === NavigationRoutes.MyBooks && (
+        {checkForLocation === 0 ? null : (
+          <button
+            onClick={() => handleButtons(BookCardButtons.ProductPage)}
+            className={styles.container_textsDiv__productPageButton}
+          >
+            Comprar
+          </button>
+        )}
+        {checkForLocation === 1 && (
           <button
             onClick={() => handleButtons(BookCardButtons.CreateDiaryEntry)}
             className={styles.container_textsDiv__CreateDiaryEntryButton}
@@ -85,7 +103,7 @@ const BookCard: FC<IBookCard> = ({ book }) => {
             Escrever Diário
           </button>
         )}
-        {location.pathname === NavigationRoutes.MyBooks ? (
+        {checkForLocation === 0 ? null : checkForLocation === 1 ? (
           <button
             onClick={() => handleButtons(BookCardButtons.RemoveFromLibrary)}
             className={
