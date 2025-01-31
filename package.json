@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://rafa1696.github.io/book-library",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
