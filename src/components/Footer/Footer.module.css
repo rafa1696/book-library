@@ -9,3 +9,9 @@
   position: fixed;
   width: 100%;
 }
+
+@media (prefers-color-scheme: dark) {
+  .container {
+    background-color: #464646;
+  }
+}

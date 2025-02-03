@@ -1,2 +1,21 @@
 .container {
 }
+
+.container_filtersArea {
+  height: 0;
+  overflow: hidden;
+
+  button {
+    opacity: 0;
+  }
+}
+
+.showFilters {
+  height: unset;
+  max-height: 50000px;
+  overflow: visible;
+
+  button {
+    opacity: 1;
+  }
+}
