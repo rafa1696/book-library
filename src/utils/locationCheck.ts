@@ -5,12 +5,14 @@ import { NavigationRoutes } from "../enums/NavigationRoutes.enum";
  * @returns 0 para Home, 1 para MyBooks e -1 para qualquer outra rota
  */
 export const locationCheck = () => {
-  const splitHash = location.hash.split("#")[1];
+  const splitLocation = location.hash
+    ? location.hash.split("#")[1]
+    : location.pathname;
 
-  if (splitHash === NavigationRoutes.Home) {
+  if (splitLocation === NavigationRoutes.Home || splitLocation === "/") {
     return 0;
   }
-  if (splitHash.includes(NavigationRoutes.MyBooks)) {
+  if (splitLocation.includes(NavigationRoutes.MyBooks)) {
     return 1;
   }
   return -1;
