@@ -36,7 +36,7 @@ const MyBooks: FC = () => {
   const returnTitle = () => {
     switch (checkForLocation) {
       case 1:
-        return <h1>Meus Livros</h1>;
+        return <h1>Biblioteca</h1>;
       case 0:
         return null;
       default:

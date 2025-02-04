@@ -1,10 +1,13 @@
-.container ul {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 2rem;
+.container {
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    padding: 0 1.6rem;
 
-  li {
-    margin-bottom: 1rem;
+    li {
+      margin-bottom: 1rem;
+    }
   }
 }
 

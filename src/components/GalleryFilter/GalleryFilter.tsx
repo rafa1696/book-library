@@ -19,12 +19,12 @@ const GalleryFilter: FC<IGalleryFilter> = ({ onFilterChange }) => {
     <div className={styles.container}>
       <button
         onClick={debouncedButton}
-        className={styles.container_title}
+        className={styles.container_filtersButton}
       >
         <h2>Filtros</h2>
         <ChevronDown
           className={[
-            styles.container_title__icon,
+            styles.container_filtersButton__icon,
             showFilters && styles.invertIcon,
           ].join(" ")}
         />

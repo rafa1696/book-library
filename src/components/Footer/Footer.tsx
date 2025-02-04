@@ -21,7 +21,7 @@ const Footer = () => {
         Diário
       </button>
       <button onClick={() => navigateToRoute(NavigationRoutes.MyBooks)}>
-        Meus Livros
+        Biblioteca
       </button>
     </footer>
   );

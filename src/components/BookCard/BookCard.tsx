@@ -110,14 +110,14 @@ const BookCard: FC<IBookCard> = ({ book }) => {
               styles.container_textsDiv__productRemoveFromLibraryButton
             }
           >
-            Remover Da Biblioteca
+            Remover
           </button>
         ) : (
           <button
             onClick={() => handleButtons(BookCardButtons.AddToLibrary)}
             className={styles.container_textsDiv__productAddToLibraryButton}
           >
-            Adicionar À Biblioteca
+            Adicionar
           </button>
         )}
       </div>

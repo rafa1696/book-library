@@ -12,12 +12,12 @@
 }
 
 body {
-  font-size: 1.6rem; /* 16px */
-  font-family: var(--font-family);
-  line-height: 1.6;
   background-color: #f4f4f4;
   color: #333;
-  padding-bottom: 35px;
+  font-family: var(--font-family);
+  font-size: 1.6rem; /* 16px */
+  line-height: 1.6;
+  padding-bottom: 3.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -73,7 +73,4 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
-}
-
- {
 }

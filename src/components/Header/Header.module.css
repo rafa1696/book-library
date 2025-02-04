@@ -1,10 +1,11 @@
 .container {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 1rem;
   background-color: #f8f9fa;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+  padding: 1rem;
 
   h1 {
     margin: 0;
