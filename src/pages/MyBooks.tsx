@@ -11,6 +11,7 @@ import { NavigationRoutes } from "../enums/NavigationRoutes.enum";
 import { FC, useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { locationCheck } from "../utils/locationCheck";
+import SeeMoreButton from "../components/SeeMoreButton/SeeMoreButton";
 
 const MyBooks: FC = () => {
   const [searchParams] = useSearchParams();
@@ -105,9 +106,7 @@ const MyBooks: FC = () => {
             Parece que não há livros em sua biblioteca, comece pesquisando!
           </span>
         )}
-        {checkForLocation === 0 && (
-          <Link to={NavigationRoutes.MyBooks}>Ver todos</Link>
-        )}
+        {checkForLocation === 0 && myBooksQuery.length > 0 && <SeeMoreButton />}
       </Gallery>
     </>
   );
