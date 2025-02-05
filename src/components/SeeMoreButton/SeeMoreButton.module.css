@@ -1,0 +1,16 @@
+.container {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  height: 32px;
+  justify-content: center;
+  width: 32px;
+  align-self: center;
+
+  svg {
+    fill: var(--white-color);
+    flex-shrink: 0;
+    height: 12px;
+    width: 12px;
+  }
+}

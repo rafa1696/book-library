@@ -12,10 +12,12 @@
     border-radius: 0.8rem;
     cursor: pointer;
     flex: 1 auto;
-    max-height: 216px;
-    min-width: 14.2rem;
+    height: 21.6rem;
+    max-width: 14.2rem;
+    /* min-width: 14.2rem; */
     overflow: hidden;
     position: relative;
+    width: 100%;
 
     img {
       width: 100%;

@@ -6,6 +6,7 @@
     padding: 0 1.6rem;
 
     li {
+      flex-shrink: 0;
       margin-bottom: 1rem;
     }
   }
@@ -19,5 +20,10 @@
 
   li {
     margin: 0 1rem;
+    max-width: 14.2rem;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
   }
 }
