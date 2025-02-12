@@ -7,9 +7,8 @@ import { FilterTypes } from "../enums/FilterTypes.enum";
 import { ContentType } from "../enums/ContentType.enum";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { NavigationRoutes } from "../enums/NavigationRoutes.enum";
 import { FC, useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { locationCheck } from "../utils/locationCheck";
 import SeeMoreButton from "../components/SeeMoreButton/SeeMoreButton";
 
