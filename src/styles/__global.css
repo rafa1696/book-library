@@ -1,7 +1,8 @@
 :root {
-  --font-family: "Arial", sans-serif;
+  --font-family: "Roboto";
   --primary-color: #3498db;
   --secondary-color: #2ecc71;
+  --white-color: #fff;
   font-size: 62.5%; /* 1rem = 10px */
 }
 
@@ -12,12 +13,19 @@
 }
 
 body {
-  font-size: 1.6rem; /* 16px */
-  font-family: var(--font-family);
-  line-height: 1.6;
   background-color: #f4f4f4;
   color: #333;
-  padding-bottom: 35px;
+  font-family: var(--font-family);
+  font-size: 1.6rem; /* 16px */
+  line-height: 1.6;
+  padding-bottom: 3.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #333;
+    color: #fff;
+  }
 }
 
 h1,
@@ -30,12 +38,28 @@ h6 {
   font-weight: 600;
 }
 
+h1 {
+  font-weight: 700;
+  padding: 0 1.6rem;
+
+  @media (min-width: 768px) {
+    padding: 0;
+    text-align: center;
+  }
+}
+
+h2 {
+  font-weight: 600;
+}
+
 p {
+  font-weight: 400;
   margin-bottom: 1.5rem;
 }
 
 a {
   color: var(--primary-color);
+  font-weight: 300;
   text-decoration: none;
 }
 
@@ -66,4 +90,12 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+textarea {
+  border-radius: 0.4rem;
+  font-family: var(--font-family);
+  min-height: 12rem;
+  padding: 0.4rem;
+  width: 100%;
 }

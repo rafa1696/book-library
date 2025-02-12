@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SearchBar from "./components/SearchBar";
 
 interface ISearchFunction {
   onSearch: (input: string) => void;
@@ -14,16 +15,11 @@ const SearchFunction = ({ onSearch }: ISearchFunction) => {
   };
 
   return (
-    <div>
-      <input
-        onChange={(e) => setInput(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-        placeholder="Busque um livro..."
-        type="text"
-        value={input}
-      />
-      <button onClick={handleSearch}>Buscar</button>
-    </div>
+    <SearchBar
+      handleSearch={handleSearch}
+      input={input}
+      setInput={setInput}
+    />
   );
 };
 

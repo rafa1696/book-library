@@ -1,2 +1,47 @@
 .container {
+  margin-bottom: 1.6rem;
+}
+
+.container_filtersButton {
+  align-items: center;
+  display: flex;
+  gap: 0.8rem;
+  margin: 0 0 0 1.6rem;
+
+  h2 {
+    margin-bottom: 0;
+  }
+
+  .container_filtersButton__icon {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.container_filtersArea {
+  height: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+
+  button {
+    opacity: 0;
+  }
+}
+
+.showFilters {
+  background: var(--secondary-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  height: unset;
+  margin-top: 0.4rem;
+  max-height: 50000px;
+  overflow: visible;
+  padding: 0.8rem 1.6rem;
+
+  button {
+    opacity: 1;
+    width: max-content;
+  }
 }

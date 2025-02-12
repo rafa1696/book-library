@@ -1,2 +1,4 @@
 @import url(./__reset.css);
+@import url(./__fonts.css);
+@import url(./__components.css);
 @import url(./__global.css);

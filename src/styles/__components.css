@@ -1,0 +1,6 @@
+@media (prefers-color-scheme: dark) {
+  .react-loading-skeleton {
+    --base-color: #464646;
+    --highlight-color: #5c5c5c;
+  }
+}

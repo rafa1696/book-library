@@ -3,7 +3,7 @@ import BookCard from "../components/BookCard/BookCard";
 import BookGallery from "../components/Gallery/Gallery";
 import { useBooks } from "../hooks/useBooks";
 import { GoogleBookVolumes } from "../types/GoogleBookVolumes.type";
-import SearchFunction from "../components/SearchFunction";
+import SearchFunction from "../components/Search/SearchFunction";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 

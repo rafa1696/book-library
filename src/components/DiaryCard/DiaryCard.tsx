@@ -26,24 +26,27 @@ const DiaryCard: FC<IDiaryCard> = ({ diaryEntry }) => {
             />
           )}
       </span>
-      <span className={styles.container_textDiv}>
-        <h2 className={styles.container_textDiv__title}>
-          {diaryEntry.title || "Sem título"}
+      <span className={styles.container_textsDiv}>
+        <h2 className={styles.container_textsDiv__bookTitle}>
+          {diaryEntry.bookTitle || ""}
         </h2>
-        <p className={styles.container_textDiv__excerpt}>
+        <h3 className={styles.container_textsDiv__title}>
+          {diaryEntry.title || "Sem título"}
+        </h3>
+        <p className={styles.container_textsDiv__excerpt}>
           {diaryEntry.entry.length > 100
             ? truncateText(diaryEntry.entry, 100)
             : diaryEntry.entry}
         </p>
         <button
-          className={styles.container_textDiv__editLink}
+          className={styles.container_textsDiv__editLink}
           onClick={() => navigate("/reading-diary/edit/" + diaryEntry.id)}
         >
           Editar
         </button>
         <button
           onClick={() => removeReadingDiaryEntry(diaryEntry.id)}
-          className={styles.container_textDiv__deleteLink}
+          className={styles.container_textsDiv__deleteLink}
         >
           Remover Entrada
         </button>

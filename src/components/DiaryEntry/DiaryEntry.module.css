@@ -1,2 +1,12 @@
 .container {
+  padding: 0 1.6rem;
+
+  > span {
+    display: block;
+  }
+
+  h2 {
+    margin-bottom: 0.8rem;
+    line-height: 1.2em;
+  }
 }

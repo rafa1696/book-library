@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-bottom: 1.6rem;
+  width: 100%;
+
+  input {
+    border-radius: 0.8rem;
+    flex-basis: 70%;
+    padding-left: 0.2rem;
+  }
+
+  button {
+    border-radius: 0.8rem;
+
+    svg {
+      fill: var(--white-color);
+      flex-shrink: 0;
+      height: 12px;
+      width: 12px;
+    }
+  }
+}
