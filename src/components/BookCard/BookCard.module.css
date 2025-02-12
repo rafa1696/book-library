@@ -4,6 +4,12 @@
   max-width: 375px;
   min-height: 190px;
 
+  @media (min-width: 768px) {
+    &:not(.isOnHome) {
+      align-items: center;
+    }
+  }
+
   &.isOnHome {
     flex-direction: column;
   }
@@ -11,18 +17,17 @@
   .container_imageDiv {
     border-radius: 0.8rem;
     cursor: pointer;
-    flex: 1 auto;
+    flex: 1 0 auto;
     height: 21.6rem;
     max-width: 14.2rem;
-    /* min-width: 14.2rem; */
     overflow: hidden;
     position: relative;
     width: 100%;
 
     img {
-      width: 100%;
       height: 100%;
       object-fit: cover;
+      width: 100%;
     }
   }
 
@@ -32,7 +37,7 @@
     flex: 2 auto;
     gap: 0.8rem;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 0 1rem 1rem;
 
     .container_textsDiv__publicationName {
       font-size: 1.8rem;
