@@ -9,6 +9,7 @@ const DiaryEntry = () => {
   const { diaryEntryId } = useParams<{ diaryEntryId: string }>();
   const [searchParams] = useSearchParams();
 
+  const bookName = searchParams.get("bookName") || "";
   const bookPicture = searchParams.get("bookPicture") || "";
 
   const { readingDiary, saveReadingDiary } = useBookLibraryContext();
@@ -18,7 +19,7 @@ const DiaryEntry = () => {
   const [entryText, setEntryText] = useState("");
   const navigate = useNavigate();
 
-  console.log("bookPicture", searchParams);
+  console.log("bookInfo", searchParams);
 
   useEffect(() => {
     const foundEntry =
@@ -32,11 +33,12 @@ const DiaryEntry = () => {
       if (diaryEntryId) {
         setEntry({
           id: diaryEntryId + "-" + returnRandomNumber(0, 100000),
-          title: "",
           associatedBooks: [diaryEntryId],
+          associatedBooksImages: [bookPicture],
+          bookTitle: bookName,
           entry: "",
           timestamp: Date.now(),
-          associatedBooksImages: [bookPicture],
+          title: "",
         });
       }
     }
@@ -55,6 +57,15 @@ const DiaryEntry = () => {
       <span className={styles.container_sectionTitle}>
         <h1>Entrada do Diário</h1>
       </span>
+      <div className={styles.container_bookInfo}>
+        <h2 className={styles.container_bookInfo__bookTitle}>{bookName}</h2>
+        <span>
+          <img
+            src={bookPicture}
+            alt={`Capa do livro ${bookName}`}
+          />
+        </span>
+      </div>
       <span className={styles.container_entryTitle}>
         <h2>Título da entrada</h2>
         <textarea

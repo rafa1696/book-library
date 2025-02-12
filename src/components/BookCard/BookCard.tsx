@@ -43,7 +43,9 @@ const BookCard: FC<IBookCard> = ({ book }) => {
           NavigationRoutes.ReadingDiary +
             "/edit/" +
             book.id +
-            createBookPictureForDiary(book.volumeInfo?.imageLinks?.thumbnail)
+            createBookPictureForDiary(book.volumeInfo?.imageLinks?.thumbnail) +
+            "&bookName=" +
+            book.volumeInfo?.title
         );
         break;
       default:

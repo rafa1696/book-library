@@ -5,4 +5,5 @@ export type ReadingDiaryEntry = {
   id: string | number;
   timestamp: number;
   title: string;
+  bookTitle: string | undefined;
 };
