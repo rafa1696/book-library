@@ -6,6 +6,9 @@ import { useBookLibraryContext } from "../../context/BookLibraryContext";
 const Toast: FC = () => {
   const { seenToastMessage } = useBookLibraryContext();
 
+  // TODO - Adicionar animações?
+  // TODO - Adicionar botão para fechar
+
   switch (seenToastMessage) {
     case ToastType.success:
       return (

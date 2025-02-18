@@ -210,7 +210,6 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
     return () => {
       clearTimeout(timeoutToResetMessage);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toastMessagePipeline]);
 
   return (
