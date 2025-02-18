@@ -5,6 +5,7 @@ import { BookInfo } from "../types/BookInfo.type";
 import { FilterTypes } from "../enums/FilterTypes.enum";
 import filterEntries from "../utils/filterEntries";
 import { ContentType } from "../enums/ContentType.enum";
+import { ToastType } from "../enums/ToastType.enum";
 
 type ContextProviderProps = {
   children: React.ReactNode;
@@ -18,6 +19,8 @@ interface IBookLibraryContext {
   reorderEntries: (filterType: FilterTypes, contentType: ContentType) => void;
   saveReadingDiary: (diaryEntry: ReadingDiaryEntry) => void;
   removeReadingDiaryEntry: (entryId: string | number) => void;
+  toastMessageDefinition: (messageType: ToastType) => void;
+  seenToastMessage: ToastType | null;
 }
 
 const BookLibraryContext = createContext({} as IBookLibraryContext);
@@ -25,6 +28,12 @@ const BookLibraryContext = createContext({} as IBookLibraryContext);
 export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
   const [savedBooks, setSavedBooks] = useState<BookInfo[]>([]);
   const [readingDiary, setReadingDiary] = useState<ReadingDiaryEntry[]>([]);
+  const [toastMessagePipeline, setToastMessagePipeline] = useState<ToastType[]>(
+    []
+  );
+  const [seenToastMessage, setSeenToastMessage] = useState<ToastType | null>(
+    null
+  );
 
   const getSavedBooks = () => {
     const books = localStorage.getItem("books");
@@ -39,6 +48,8 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
   const saveBook = (bookInfo: BookInfo) => {
     const books = localStorage.getItem("books");
 
+    // TODO - Adicionar condição para não adicionar duplicata
+
     if (books) {
       const parsedBooks = JSON.parse(books);
 
@@ -48,6 +59,8 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
     } else {
       localStorage.setItem("books", JSON.stringify([bookInfo]));
     }
+
+    toastMessageDefinition(ToastType.success);
 
     getSavedBooks();
   };
@@ -63,6 +76,8 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
       "books",
       JSON.stringify(parsedBooks.filter((book: BookInfo) => book.id !== bookId))
     );
+
+    toastMessageDefinition(ToastType.success);
 
     getSavedBooks();
   };
@@ -114,8 +129,6 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
   const saveReadingDiary = (entry: ReadingDiaryEntry) => {
     const diary = localStorage.getItem("readingDiary");
 
-    // console.log("save entry", entry);
-
     if (diary) {
       const parsedDiary = JSON.parse(diary);
       const foundEntry = parsedDiary.find(
@@ -143,6 +156,8 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
       localStorage.setItem("readingDiary", JSON.stringify([entry]));
     }
 
+    toastMessageDefinition(ToastType.success);
+
     getReadingDiary();
   };
 
@@ -160,6 +175,8 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
       )
     );
 
+    toastMessageDefinition(ToastType.success);
+
     getReadingDiary();
   };
 
@@ -167,6 +184,34 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
     getSavedBooks();
     getReadingDiary();
   }, []);
+
+  const toastMessageDefinition = (messageType: ToastType) => {
+    setToastMessagePipeline((toastMessagePipeline) => [
+      ...toastMessagePipeline,
+      messageType,
+    ]);
+  };
+
+  useEffect(() => {
+    if (toastMessagePipeline.length === 0) return;
+
+    setSeenToastMessage(toastMessagePipeline[0]);
+
+    const timeoutToResetMessage = setTimeout(() => {
+      setSeenToastMessage(ToastType.unset);
+
+      if (toastMessagePipeline.length > 1)
+        setToastMessagePipeline((toastMessagePipeline) =>
+          toastMessagePipeline.slice(1)
+        );
+      else if (toastMessagePipeline.length === 1) setToastMessagePipeline([]);
+    }, 5000);
+
+    return () => {
+      clearTimeout(timeoutToResetMessage);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [toastMessagePipeline]);
 
   return (
     <BookLibraryContext.Provider
@@ -178,6 +223,8 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
         saveReadingDiary,
         removeReadingDiaryEntry,
         reorderEntries,
+        toastMessageDefinition,
+        seenToastMessage,
       }}
     >
       {children}
