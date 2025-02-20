@@ -2,6 +2,8 @@
   --font-family: "Roboto";
   --primary-color: #3498db;
   --secondary-color: #2ecc71;
+  --success-color: #198754;
+  --failure-color: #dc3545;
   --white-color: #fff;
   font-size: 62.5%; /* 1rem = 10px */
 }
@@ -19,6 +21,7 @@ body {
   font-size: 1.6rem; /* 16px */
   line-height: 1.6;
   padding-bottom: 3.5rem;
+  position: relative;
 }
 
 @media (prefers-color-scheme: dark) {
