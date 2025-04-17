@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import { ReadingDiaryEntry } from "../types/ReadingDiaryEntry.type";
 import { BookInfo } from "../types/BookInfo.type";
 import { FilterTypes } from "../enums/FilterTypes.enum";
@@ -11,6 +11,13 @@ type ContextProviderProps = {
   children: React.ReactNode;
 };
 
+interface IBookLibraryState {
+  savedBooks: BookInfo[];
+  readingDiary: ReadingDiaryEntry[];
+  toastMessagePipeline: ToastType[];
+  seenToastMessage: ToastType | null;
+}
+
 interface IBookLibraryContext {
   readingDiary: ReadingDiaryEntry[];
   removeBook: (bookId: string) => void;
@@ -21,65 +28,101 @@ interface IBookLibraryContext {
   removeReadingDiaryEntry: (entryId: string | number) => void;
   toastMessageDefinition: (messageType: ToastType) => void;
   seenToastMessage: ToastType | null;
+  toastMessagePipeline: ToastType[];
 }
+
+type Action =
+  | { type: "SET_SAVED_BOOKS"; payload: BookInfo[] }
+  | { type: "SET_READING_DIARY"; payload: ReadingDiaryEntry[] }
+  | { type: "ADD_BOOK"; payload: BookInfo }
+  | { type: "REMOVE_BOOK"; payload: string }
+  | { type: "ADD_DIARY_ENTRY"; payload: ReadingDiaryEntry }
+  | { type: "REMOVE_DIARY_ENTRY"; payload: string | number }
+  | { type: "ADD_TOAST_MESSAGE"; payload: ToastType }
+  | { type: "SET_SEEN_TOAST_MESSAGE"; payload: ToastType | null };
+
+const initialState: IBookLibraryState = {
+  savedBooks: [],
+  readingDiary: [],
+  toastMessagePipeline: [],
+  seenToastMessage: null,
+};
+
+const reducer = (
+  state: IBookLibraryState,
+  action: Action
+): IBookLibraryState => {
+  switch (action.type) {
+    case "SET_SAVED_BOOKS":
+      return { ...state, savedBooks: action.payload };
+    case "SET_READING_DIARY":
+      return { ...state, readingDiary: action.payload };
+    case "ADD_BOOK":
+      return { ...state, savedBooks: [...state.savedBooks, action.payload] };
+    case "REMOVE_BOOK":
+      return {
+        ...state,
+        savedBooks: state.savedBooks.filter(
+          (book) => book.id !== action.payload
+        ),
+      };
+    case "ADD_DIARY_ENTRY":
+      return {
+        ...state,
+        readingDiary: [...state.readingDiary, action.payload],
+      };
+    case "REMOVE_DIARY_ENTRY":
+      return {
+        ...state,
+        readingDiary: state.readingDiary.filter(
+          (entry) => entry.id !== action.payload
+        ),
+      };
+    case "ADD_TOAST_MESSAGE":
+      return {
+        ...state,
+        toastMessagePipeline: [...state.toastMessagePipeline, action.payload],
+      };
+    case "SET_SEEN_TOAST_MESSAGE":
+      return { ...state, seenToastMessage: action.payload };
+    default:
+      return state;
+  }
+};
 
 const BookLibraryContext = createContext({} as IBookLibraryContext);
 
 export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
-  const [savedBooks, setSavedBooks] = useState<BookInfo[]>([]);
-  const [readingDiary, setReadingDiary] = useState<ReadingDiaryEntry[]>([]);
-  const [toastMessagePipeline, setToastMessagePipeline] = useState<ToastType[]>(
-    []
-  );
-  const [seenToastMessage, setSeenToastMessage] = useState<ToastType | null>(
-    null
-  );
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const getSavedBooks = () => {
     const books = localStorage.getItem("books");
-
-    if (books) {
-      return setSavedBooks(JSON.parse(books));
-    }
-
-    return setSavedBooks([]);
+    const parsedBooks = books ? JSON.parse(books) : [];
+    dispatch({ type: "SET_SAVED_BOOKS", payload: parsedBooks });
   };
 
   const saveBook = (bookInfo: BookInfo) => {
     const books = localStorage.getItem("books");
+    const parsedBooks = books ? JSON.parse(books) : [];
 
-    // TODO - Adicionar condição para não adicionar duplicata
-
-    if (books) {
-      const parsedBooks = JSON.parse(books);
-
-      if (parsedBooks.includes(bookInfo.id.toString())) return;
-
+    if (!parsedBooks.find((book: BookInfo) => book.id === bookInfo.id)) {
       localStorage.setItem("books", JSON.stringify([...parsedBooks, bookInfo]));
-    } else {
-      localStorage.setItem("books", JSON.stringify([bookInfo]));
+      dispatch({ type: "ADD_BOOK", payload: bookInfo });
     }
 
-    toastMessageDefinition(ToastType.success);
-
-    getSavedBooks();
+    dispatch({ type: "ADD_TOAST_MESSAGE", payload: ToastType.success });
   };
 
   const removeBook = (bookId: string) => {
     const books = localStorage.getItem("books");
-
-    if (!books) return;
-
-    const parsedBooks = JSON.parse(books);
+    const parsedBooks = books ? JSON.parse(books) : [];
 
     localStorage.setItem(
       "books",
       JSON.stringify(parsedBooks.filter((book: BookInfo) => book.id !== bookId))
     );
-
-    toastMessageDefinition(ToastType.success);
-
-    getSavedBooks();
+    dispatch({ type: "REMOVE_BOOK", payload: bookId });
+    dispatch({ type: "ADD_TOAST_MESSAGE", payload: ToastType.success });
   };
 
   const reorderEntries = (
@@ -117,56 +160,31 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
   };
 
   const getReadingDiary = () => {
-    const readingDiary = localStorage.getItem("readingDiary");
-
-    if (readingDiary) {
-      return setReadingDiary(JSON.parse(readingDiary));
-    }
-
-    return setReadingDiary([]);
+    const diary = localStorage.getItem("readingDiary");
+    const parsedDiary = diary ? JSON.parse(diary) : [];
+    dispatch({ type: "SET_READING_DIARY", payload: parsedDiary });
   };
 
   const saveReadingDiary = (entry: ReadingDiaryEntry) => {
     const diary = localStorage.getItem("readingDiary");
+    const parsedDiary = diary ? JSON.parse(diary) : [];
 
-    if (diary) {
-      const parsedDiary = JSON.parse(diary);
-      const foundEntry = parsedDiary.find(
-        (registeredEntry: ReadingDiaryEntry) => registeredEntry.id === entry.id
-      );
-      console.log("foundEntry", foundEntry);
-
-      if (!foundEntry) {
-        localStorage.setItem(
-          "readingDiary",
-          JSON.stringify([...parsedDiary, entry])
-        );
-        getReadingDiary();
-
-        return;
-      }
-
-      const updatedDiary = parsedDiary.map(
-        (registeredEntry: ReadingDiaryEntry) =>
+    const updatedDiary = parsedDiary.some(
+      (registeredEntry: ReadingDiaryEntry) => registeredEntry.id === entry.id
+    )
+      ? parsedDiary.map((registeredEntry: ReadingDiaryEntry) =>
           registeredEntry.id === entry.id ? entry : registeredEntry
-      );
+        )
+      : [...parsedDiary, entry];
 
-      localStorage.setItem("readingDiary", JSON.stringify(updatedDiary));
-    } else {
-      localStorage.setItem("readingDiary", JSON.stringify([entry]));
-    }
-
-    toastMessageDefinition(ToastType.success);
-
-    getReadingDiary();
+    localStorage.setItem("readingDiary", JSON.stringify(updatedDiary));
+    dispatch({ type: "SET_READING_DIARY", payload: updatedDiary });
+    dispatch({ type: "ADD_TOAST_MESSAGE", payload: ToastType.success });
   };
 
   const removeReadingDiaryEntry = (entryId: string | number) => {
     const diary = localStorage.getItem("readingDiary");
-
-    if (!diary) return;
-
-    const parsedDiary = JSON.parse(diary);
+    const parsedDiary = diary ? JSON.parse(diary) : [];
 
     localStorage.setItem(
       "readingDiary",
@@ -174,10 +192,8 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
         parsedDiary.filter((entry: ReadingDiaryEntry) => entry.id !== entryId)
       )
     );
-
-    toastMessageDefinition(ToastType.success);
-
-    getReadingDiary();
+    dispatch({ type: "REMOVE_DIARY_ENTRY", payload: entryId });
+    dispatch({ type: "ADD_TOAST_MESSAGE", payload: ToastType.success });
   };
 
   useEffect(() => {
@@ -186,44 +202,43 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
   }, []);
 
   const toastMessageDefinition = (messageType: ToastType) => {
-    setToastMessagePipeline((toastMessagePipeline) => [
-      ...toastMessagePipeline,
-      messageType,
-    ]);
+    dispatch({ type: "ADD_TOAST_MESSAGE", payload: messageType });
   };
 
   useEffect(() => {
-    if (toastMessagePipeline.length === 0) return;
+    if (state.toastMessagePipeline.length === 0) return;
 
-    setSeenToastMessage(toastMessagePipeline[0]);
+    dispatch({
+      type: "SET_SEEN_TOAST_MESSAGE",
+      payload: state.toastMessagePipeline[0],
+    });
 
     const timeoutToResetMessage = setTimeout(() => {
-      setSeenToastMessage(ToastType.unset);
-
-      if (toastMessagePipeline.length > 1)
-        setToastMessagePipeline((toastMessagePipeline) =>
-          toastMessagePipeline.slice(1)
-        );
-      else if (toastMessagePipeline.length === 1) setToastMessagePipeline([]);
+      dispatch({ type: "SET_SEEN_TOAST_MESSAGE", payload: ToastType.unset });
+      const nextToastMessage = state.toastMessagePipeline.slice(1)[0];
+      if (nextToastMessage) {
+        dispatch({
+          type: "ADD_TOAST_MESSAGE",
+          payload: nextToastMessage,
+        });
+      }
     }, 5000);
 
     return () => {
       clearTimeout(timeoutToResetMessage);
     };
-  }, [toastMessagePipeline]);
+  }, [state.toastMessagePipeline]);
 
   return (
     <BookLibraryContext.Provider
       value={{
+        ...state,
         saveBook,
-        savedBooks,
         removeBook,
-        readingDiary,
         saveReadingDiary,
         removeReadingDiaryEntry,
         reorderEntries,
         toastMessageDefinition,
-        seenToastMessage,
       }}
     >
       {children}
