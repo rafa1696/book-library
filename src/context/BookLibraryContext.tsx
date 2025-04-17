@@ -39,6 +39,7 @@ type Action =
   | { type: "ADD_DIARY_ENTRY"; payload: ReadingDiaryEntry }
   | { type: "REMOVE_DIARY_ENTRY"; payload: string | number }
   | { type: "ADD_TOAST_MESSAGE"; payload: ToastType }
+  | { type: "REMOVE_ONE_TOAST_MESSAGE"; payload?: ToastType }
   | { type: "SET_SEEN_TOAST_MESSAGE"; payload: ToastType | null };
 
 const initialState: IBookLibraryState = {
@@ -82,6 +83,14 @@ const reducer = (
       return {
         ...state,
         toastMessagePipeline: [...state.toastMessagePipeline, action.payload],
+      };
+    case "REMOVE_ONE_TOAST_MESSAGE":
+      return {
+        ...state,
+        toastMessagePipeline:
+          state.toastMessagePipeline.length > 0
+            ? state.toastMessagePipeline.slice(1)
+            : [],
       };
     case "SET_SEEN_TOAST_MESSAGE":
       return { ...state, seenToastMessage: action.payload };
@@ -206,6 +215,7 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
   };
 
   useEffect(() => {
+    console.log("message pipeline", state.toastMessagePipeline);
     if (state.toastMessagePipeline.length === 0) return;
 
     dispatch({
@@ -215,11 +225,10 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
 
     const timeoutToResetMessage = setTimeout(() => {
       dispatch({ type: "SET_SEEN_TOAST_MESSAGE", payload: ToastType.unset });
-      const nextToastMessage = state.toastMessagePipeline.slice(1)[0];
-      if (nextToastMessage) {
+
+      if (state.toastMessagePipeline.length > 0) {
         dispatch({
-          type: "ADD_TOAST_MESSAGE",
-          payload: nextToastMessage,
+          type: "REMOVE_ONE_TOAST_MESSAGE",
         });
       }
     }, 5000);
