@@ -28,23 +28,26 @@ describe('<Search />', () => {
 
 	it('displays loading skeleton when data is loading', () => {
 		cy.intercept(
-			'GET',
-			'https://www.googleapis.com/books/v1/volumes?q=Harry+Potter&maxResults=10',
 			{
-				delay: 1000,
+				method: 'GET',
+				url: 'https://www.googleapis.com/books/v1/volumes*', // Usa * para capturar qualquer parâmetro de consulta
+			},
+			{
+				delay: 2000,
 				fixture: 'books.json',
 			}
 		).as('getBooks')
 
+		// Digita o termo de busca
 		cy.get('[data-cy="search-input-textbox"]').type('Harry Potter')
 		cy.get('[data-cy="search-input-textbox"]').should('have.value', 'Harry Potter')
 
 		cy.get('[data-cy="search-button"]').click()
 
+		cy.get('.react-loading-skeleton').should('exist')
+
 		cy.wait('@getBooks').then((interception) => {
 			cy.log('Intercepted:', interception)
 		})
-
-		cy.get('.react-loading-skeleton').should('exist')
 	})
 })
