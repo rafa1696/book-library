@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# cypress artifacts
+cypress/screenshots
+cypress/videos
+cypress/results
