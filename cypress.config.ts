@@ -1,10 +1,22 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from 'cypress'
 
 export default defineConfig({
-  component: {
-    devServer: {
-      framework: "react",
-      bundler: "vite",
-    },
-  },
-});
+	component: {
+		devServer: {
+			framework: 'react',
+			bundler: 'vite',
+		},
+	},
+
+	e2e: {
+		video: true,
+		reporter: 'mochawesome',
+		reporterOptions: {
+			reportDir: 'cypress/results',
+			overwrite: false,
+			html: true,
+			json: false,
+			timestamp: 'mmddyyyy_HHMMss',
+		},
+	},
+})
