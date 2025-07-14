@@ -1,0 +1,893 @@
+[
+	{
+		"kind": "books#volume",
+		"id": "-bF2CwAAQBAJ",
+		"etag": "QI33KKBVk4A",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/-bF2CwAAQBAJ",
+		"volumeInfo": {
+			"title": "Harry Potter: A Coleção Completa (1-7)",
+			"authors": ["J.K. Rowling"],
+			"publisher": "Pottermore Publishing",
+			"publishedDate": "2016-01-28",
+			"description": "Quando Harry Potter é deixado em uma porta ainda bebê, ele não faz ideia de que é o Menino Que Sobreviveu, ou de que é famoso em todo o mundo bruxo. Anos depois, ele fica surpreso ao receber uma carta de admissão da Escola de Magia e Bruxaria de Hogwarts e é rapidamente levado em uma aventura mágica como nenhuma outra. Junte-se a Harry e seus amigos leais, Hermione e Ron, nesta história sobre o poder da verdade, amor e esperança. Clássicos do nosso tempo, os ebooks de Harry Potter nunca deixam de oferecer conforto e escapismo. Com sua mensagem de esperança, pertencimento e o poder duradouro da verdade e do amor, a história do Menino Que Sobreviveu continua a encantar gerações de novos leitores.",
+			"industryIdentifiers": [
+				{
+					"type": "ISBN_13",
+					"identifier": "9781781106587"
+				},
+				{
+					"type": "ISBN_10",
+					"identifier": "1781106584"
+				}
+			],
+			"readingModes": {
+				"text": true,
+				"image": true
+			},
+			"pageCount": 4171,
+			"printType": "BOOK",
+			"categories": ["Juvenile Fiction"],
+			"averageRating": 5,
+			"ratingsCount": 1,
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": true,
+			"contentVersion": "1.27.30.0.preview.3",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=-bF2CwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=-bF2CwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "pt",
+			"previewLink": "http://books.google.com.br/books?id=-bF2CwAAQBAJ&printsec=frontcover&dq=harry+potter&hl=&cd=1&source=gbs_api",
+			"infoLink": "https://play.google.com/store/books/details?id=-bF2CwAAQBAJ&source=gbs_api",
+			"canonicalVolumeLink": "https://play.google.com/store/books/details?id=-bF2CwAAQBAJ"
+		},
+		"saleInfo": {
+			"country": "BR",
+			"saleability": "FOR_SALE",
+			"isEbook": true,
+			"listPrice": {
+				"amount": 189.9,
+				"currencyCode": "BRL"
+			},
+			"retailPrice": {
+				"amount": 189.9,
+				"currencyCode": "BRL"
+			},
+			"buyLink": "https://play.google.com/store/books/details?id=-bF2CwAAQBAJ&rdid=book--bF2CwAAQBAJ&rdot=1&source=gbs_api",
+			"offers": [
+				{
+					"finskyOfferType": 1,
+					"listPrice": {
+						"amountInMicros": 189900000,
+						"currencyCode": "BRL"
+					},
+					"retailPrice": {
+						"amountInMicros": 189900000,
+						"currencyCode": "BRL"
+					},
+					"giftable": true
+				}
+			]
+		},
+		"accessInfo": {
+			"country": "BR",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.com.br/books/download/Harry_Potter_A_Cole%C3%A7%C3%A3o_Completa_1_7-sample-epub.acsm?id=-bF2CwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.com.br/books/download/Harry_Potter_A_Cole%C3%A7%C3%A3o_Completa_1_7-sample-pdf.acsm?id=-bF2CwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=-bF2CwAAQBAJ&hl=&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "Quando Harry Potter é deixado em uma porta ainda bebê, ele não faz ideia de que é o Menino Que Sobreviveu, ou de que é famoso em todo o mundo bruxo."
+		}
+	},
+	{
+		"kind": "books#volume",
+		"id": "11h7DwAAQBAJ",
+		"etag": "cdbC0xP9i/8",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/11h7DwAAQBAJ",
+		"volumeInfo": {
+			"title": "Harry Potter e a Criança Amaldiçoada - Partes Um e Dois",
+			"subtitle": "Guião oficial da peça de teatro",
+			"authors": ["J.K. Rowling", "John Tiffany", "Jack Thorne"],
+			"publisher": "Pottermore Publishing",
+			"publishedDate": "2018-09-19",
+			"description": "Passaram dezanove anos desde que Harry Potter, Ron Weasley e Hermione Granger salvaram o mundo dos feiticeiros, e agora estão de volta numa aventura extraordinária, a que se junta uma corajosa nova geração que só agora chegou à Escola de Magia e Feitiçaria de Hogwarts. Enquanto Harry luta com um passado que se recusa a ficar onde pertence, o seu filho mais novo, Albus, luta com o peso de um legado familiar que nunca quis. À medida que o passado e o presente colidem, tanto o pai como o filho estão bloqueados numa corrida através do tempo enquanto lutam contra forças misteriosas, tudo isto enquanto o futuro está em jogo. Com base numa história original de J.K. Rowling, John Tiffany e Jack Thorne, Harry Potter e a Criança Amaldiçoada é o guião integral e completo da produção premiada do West End. Esta edição inclui o diálogo final e as direções de palco da peça original, em duas partes, uma peça de conversa entre o realizador John Tiffany e o dramaturgo Jack Thorne, a árvore genealógica dos Potter e uma cronologia de eventos-chave no mundo dos feiticeiros que conduzem a Harry Potter e a Criança Amaldiçoada.",
+			"industryIdentifiers": [
+				{
+					"type": "ISBN_13",
+					"identifier": "9781781105337"
+				},
+				{
+					"type": "ISBN_10",
+					"identifier": "1781105332"
+				}
+			],
+			"readingModes": {
+				"text": true,
+				"image": false
+			},
+			"pageCount": 434,
+			"printType": "BOOK",
+			"categories": ["Drama"],
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": true,
+			"contentVersion": "1.7.7.0.preview.2",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=11h7DwAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=11h7DwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+			},
+			"language": "pt",
+			"previewLink": "http://books.google.com.br/books?id=11h7DwAAQBAJ&dq=harry+potter&hl=&cd=2&source=gbs_api",
+			"infoLink": "http://books.google.com.br/books?id=11h7DwAAQBAJ&dq=harry+potter&hl=&source=gbs_api",
+			"canonicalVolumeLink": "https://books.google.com/books/about/Harry_Potter_e_a_Crian%C3%A7a_Amaldi%C3%A7oada_P.html?hl=&id=11h7DwAAQBAJ"
+		},
+		"saleInfo": {
+			"country": "BR",
+			"saleability": "NOT_FOR_SALE",
+			"isEbook": false
+		},
+		"accessInfo": {
+			"country": "BR",
+			"viewability": "NO_PAGES",
+			"embeddable": false,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": true
+			},
+			"pdf": {
+				"isAvailable": true
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=11h7DwAAQBAJ&hl=&source=gbs_api",
+			"accessViewStatus": "NONE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "Esta edição inclui o diálogo final e as direções de palco da peça original, em duas partes, uma peça de conversa entre o realizador John Tiffany e o dramaturgo Jack Thorne, a árvore genealógica dos Potter e uma cronologia de ..."
+		}
+	},
+	{
+		"kind": "books#volume",
+		"id": "qDYQCwAAQBAJ",
+		"etag": "JHbz4bcqwT0",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/qDYQCwAAQBAJ",
+		"volumeInfo": {
+			"title": "Harry Potter e o prisioneiro de Azkaban",
+			"authors": ["J.K. Rowling"],
+			"publisher": "Pottermore Publishing",
+			"publishedDate": "2015-12-08",
+			"description": "Bem-vindo ao ônibus Nôitibus Andante, o transporte de emergência para bruxos e bruxas perdidos. Basta esticar a mão da varinha, subir a bordo e podemos levá-lo aonde quiser.' Quando o ônibus Nôitibus Andante surge repentinamente da escuridão e solta um guincho de seu freio bem à sua frente, mais um ano nada normal em Hogwarts começa para Harry Potter. Sirius Black, assassino em série fugitivo e seguidor do Lorde Voldemort, está à solta - e dizem que está indo atrás de Harry. Em sua primeira aula de Adivinhação, a professora Trelawney vê um agouro de morte nas folhas do chá de Harry... Mas talvez a parte mais assustadora seja os Dementadores patrulhando os pátios da escola, com seus beijos que sugam a alma...",
+			"industryIdentifiers": [
+				{
+					"type": "ISBN_13",
+					"identifier": "9781781103708"
+				},
+				{
+					"type": "ISBN_10",
+					"identifier": "1781103704"
+				}
+			],
+			"readingModes": {
+				"text": true,
+				"image": true
+			},
+			"pageCount": 454,
+			"printType": "BOOK",
+			"categories": ["Juvenile Fiction"],
+			"averageRating": 2.5,
+			"ratingsCount": 2,
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": true,
+			"contentVersion": "2.15.21.0.preview.3",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=qDYQCwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=qDYQCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "pt",
+			"previewLink": "http://books.google.com.br/books?id=qDYQCwAAQBAJ&printsec=frontcover&dq=harry+potter&hl=&cd=3&source=gbs_api",
+			"infoLink": "https://play.google.com/store/books/details?id=qDYQCwAAQBAJ&source=gbs_api",
+			"canonicalVolumeLink": "https://play.google.com/store/books/details?id=qDYQCwAAQBAJ"
+		},
+		"saleInfo": {
+			"country": "BR",
+			"saleability": "FOR_SALE",
+			"isEbook": true,
+			"listPrice": {
+				"amount": 29.9,
+				"currencyCode": "BRL"
+			},
+			"retailPrice": {
+				"amount": 29.9,
+				"currencyCode": "BRL"
+			},
+			"buyLink": "https://play.google.com/store/books/details?id=qDYQCwAAQBAJ&rdid=book-qDYQCwAAQBAJ&rdot=1&source=gbs_api",
+			"offers": [
+				{
+					"finskyOfferType": 1,
+					"listPrice": {
+						"amountInMicros": 29900000,
+						"currencyCode": "BRL"
+					},
+					"retailPrice": {
+						"amountInMicros": 29900000,
+						"currencyCode": "BRL"
+					},
+					"giftable": true
+				}
+			]
+		},
+		"accessInfo": {
+			"country": "BR",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.com.br/books/download/Harry_Potter_e_o_prisioneiro_de_Azkaban-sample-epub.acsm?id=qDYQCwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.com.br/books/download/Harry_Potter_e_o_prisioneiro_de_Azkaban-sample-pdf.acsm?id=qDYQCwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=qDYQCwAAQBAJ&hl=&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "Bem-vindo ao ônibus Nôitibus Andante, o transporte de emergência para bruxos e bruxas perdidos."
+		}
+	},
+	{
+		"kind": "books#volume",
+		"id": "-DgQCwAAQBAJ",
+		"etag": "lVA6UohA4/Y",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/-DgQCwAAQBAJ",
+		"volumeInfo": {
+			"title": "Harry Potter e as Relíquias da Morte",
+			"authors": ["J.K. Rowling"],
+			"publisher": "Pottermore Publishing",
+			"publishedDate": "2015-12-08",
+			"description": "Entreguem-me Harry Potter\", disse a voz de Voldemort, \"e ninguém sairá ferido. Entreguem-me Harry Potter, e não tocarei na escola. Entreguem-me Harry Potter, e serão recompensados.\" Ao subir no sidecar da moto de Hagrid e subir aos céus, deixando a Rua dos Alfeneiros pela última vez, Harry Potter sabe que o lorde Voldemort e os Comensais da Morte estão em seu encalço. O feitiço de proteção que manteve Harry seguro até o momento foi quebrado, mas ele não pode mais se esconder. O Lorde das Trevas está incutindo medo em tudo que Harry ama e, para detê-lo, Harry terá de encontrar e destruir as Horcruxes que restaram. A batalha final está para começar - Harry precisa enfrentar seu inimigo...",
+			"industryIdentifiers": [
+				{
+					"type": "ISBN_13",
+					"identifier": "9781781104064"
+				},
+				{
+					"type": "ISBN_10",
+					"identifier": "1781104069"
+				}
+			],
+			"readingModes": {
+				"text": true,
+				"image": true
+			},
+			"pageCount": 759,
+			"printType": "BOOK",
+			"categories": ["Juvenile Fiction"],
+			"averageRating": 5,
+			"ratingsCount": 1,
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": true,
+			"contentVersion": "1.16.20.0.preview.3",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=-DgQCwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=-DgQCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "pt",
+			"previewLink": "http://books.google.com.br/books?id=-DgQCwAAQBAJ&pg=PP1&dq=harry+potter&hl=&cd=4&source=gbs_api",
+			"infoLink": "https://play.google.com/store/books/details?id=-DgQCwAAQBAJ&source=gbs_api",
+			"canonicalVolumeLink": "https://play.google.com/store/books/details?id=-DgQCwAAQBAJ"
+		},
+		"saleInfo": {
+			"country": "BR",
+			"saleability": "FOR_SALE",
+			"isEbook": true,
+			"listPrice": {
+				"amount": 29.9,
+				"currencyCode": "BRL"
+			},
+			"retailPrice": {
+				"amount": 29.9,
+				"currencyCode": "BRL"
+			},
+			"buyLink": "https://play.google.com/store/books/details?id=-DgQCwAAQBAJ&rdid=book--DgQCwAAQBAJ&rdot=1&source=gbs_api",
+			"offers": [
+				{
+					"finskyOfferType": 1,
+					"listPrice": {
+						"amountInMicros": 29900000,
+						"currencyCode": "BRL"
+					},
+					"retailPrice": {
+						"amountInMicros": 29900000,
+						"currencyCode": "BRL"
+					},
+					"giftable": true
+				}
+			]
+		},
+		"accessInfo": {
+			"country": "BR",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.com.br/books/download/Harry_Potter_e_as_Rel%C3%ADquias_da_Morte-sample-epub.acsm?id=-DgQCwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.com.br/books/download/Harry_Potter_e_as_Rel%C3%ADquias_da_Morte-sample-pdf.acsm?id=-DgQCwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=-DgQCwAAQBAJ&hl=&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "Entreguem-me Harry Potter&quot;, disse a voz de Voldemort, &quot;e ninguém sairá ferido."
+		}
+	},
+	{
+		"kind": "books#volume",
+		"id": "n3vng7gyGCYC",
+		"etag": "FL7q7LF7nvs",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/n3vng7gyGCYC",
+		"volumeInfo": {
+			"title": "Harry Potter",
+			"publisher": "PediaPress",
+			"readingModes": {
+				"text": false,
+				"image": true
+			},
+			"pageCount": 1011,
+			"printType": "BOOK",
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "0.1.1.0.preview.1",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=n3vng7gyGCYC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=n3vng7gyGCYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.com.br/books?id=n3vng7gyGCYC&pg=PA845&dq=harry+potter&hl=&cd=5&source=gbs_api",
+			"infoLink": "http://books.google.com.br/books?id=n3vng7gyGCYC&dq=harry+potter&hl=&source=gbs_api",
+			"canonicalVolumeLink": "https://books.google.com/books/about/Harry_Potter.html?hl=&id=n3vng7gyGCYC"
+		},
+		"saleInfo": {
+			"country": "BR",
+			"saleability": "NOT_FOR_SALE",
+			"isEbook": false
+		},
+		"accessInfo": {
+			"country": "BR",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": false
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.com.br/books/download/Harry_Potter-sample-pdf.acsm?id=n3vng7gyGCYC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=n3vng7gyGCYC&hl=&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "... <b>Harry Potter</b> and the Half - Blood Prince ( in English ) . London : Blooms- bury , et al . p.465 . UK ISBN 0-7475-8108-8 . 878 Rowling , J. K. ( 2007 ) . <b>Harry Potter</b> and the Deathly Hallows ( in English ) . London : Blooms- bury , et al&nbsp;..."
+		}
+	},
+	{
+		"kind": "books#volume",
+		"id": "abYKXvCwEToC",
+		"etag": "Oa5cNQNcVWU",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/abYKXvCwEToC",
+		"volumeInfo": {
+			"title": "Harry Potter",
+			"subtitle": "The Story of a Global Business Phenomenon",
+			"authors": ["S. Gunelius"],
+			"publisher": "Springer",
+			"publishedDate": "2008-06-03",
+			"description": "The Harry Potter books are the bestselling books of all time. In this fascinating study, Susan Gunelius analyzes every aspect of the brand phenomenon that is Harry Potter. Delving into price wars, box office revenue, and brand values, amongst other things, this is the story of the most incredible brand success there has ever been.",
+			"industryIdentifiers": [
+				{
+					"type": "ISBN_13",
+					"identifier": "9780230594104"
+				},
+				{
+					"type": "ISBN_10",
+					"identifier": "0230594107"
+				}
+			],
+			"readingModes": {
+				"text": true,
+				"image": true
+			},
+			"pageCount": 214,
+			"printType": "BOOK",
+			"categories": ["Business & Economics"],
+			"averageRating": 3,
+			"ratingsCount": 8,
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": true,
+			"contentVersion": "2.5.6.0.preview.3",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=abYKXvCwEToC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=abYKXvCwEToC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "en",
+			"previewLink": "http://books.google.com.br/books?id=abYKXvCwEToC&pg=PA165&dq=harry+potter&hl=&cd=6&source=gbs_api",
+			"infoLink": "https://play.google.com/store/books/details?id=abYKXvCwEToC&source=gbs_api",
+			"canonicalVolumeLink": "https://play.google.com/store/books/details?id=abYKXvCwEToC"
+		},
+		"saleInfo": {
+			"country": "BR",
+			"saleability": "FOR_SALE",
+			"isEbook": true,
+			"listPrice": {
+				"amount": 319.95,
+				"currencyCode": "BRL"
+			},
+			"retailPrice": {
+				"amount": 319.95,
+				"currencyCode": "BRL"
+			},
+			"buyLink": "https://play.google.com/store/books/details?id=abYKXvCwEToC&rdid=book-abYKXvCwEToC&rdot=1&source=gbs_api",
+			"offers": [
+				{
+					"finskyOfferType": 1,
+					"listPrice": {
+						"amountInMicros": 319950000,
+						"currencyCode": "BRL"
+					},
+					"retailPrice": {
+						"amountInMicros": 319950000,
+						"currencyCode": "BRL"
+					},
+					"giftable": true
+				}
+			]
+		},
+		"accessInfo": {
+			"country": "BR",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.com.br/books/download/Harry_Potter-sample-epub.acsm?id=abYKXvCwEToC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.com.br/books/download/Harry_Potter-sample-pdf.acsm?id=abYKXvCwEToC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=abYKXvCwEToC&hl=&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "... Potter , Book 8 , RIP . ” ( 9 Nov. 2007 ) , http://www.hpana.com/news.20263.html . &quot; English <b>Harry Potter</b> Book Flies to Top of German Bestseller List . &quot; ( 25 Jul . 2007 ) ... <b>Harry Potter</b> Finale Sales Hit 11m . &quot; ( 165 BIBLIOGRAPHY."
+		}
+	},
+	{
+		"kind": "books#volume",
+		"id": "4GGMDgAAQBAJ",
+		"etag": "9i8jXLsaEWo",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/4GGMDgAAQBAJ",
+		"volumeInfo": {
+			"title": "ANIMAIS FANTÁSTICOS E ONDE HABITAM: O ROTEIRO ORIGINAL",
+			"authors": ["J.K. Rowling"],
+			"publisher": "Pottermore Publishing",
+			"publishedDate": "2017-04-08",
+			"description": "Quando o magizoólogo Newt Scamander chega em Nova York, sua intenção é fazer apenas uma breve parada. No entanto, quando sua maleta mágica é trocada e parte de seus animais fantásticos escapa, isso representa um problema para todos... Inspirado no livro didático de Hogwarts escrito por Newt Scamander, ANIMAIS FANTÁSTICOS E ONDE HABITAM: O ROTEIRO ORIGINAL marca a estreia de J.K. Rowling, autora dos queridos best-sellers internacionais HARRY POTTER, como roteirista. Uma façanha da imaginação, apresentando um elenco repleto de personagens marcantes e criaturas mágicas, essa é uma narrativa épica e repleta de ação em sua melhor forma. Para fãs ou iniciantes no mundo de Harry Potter, essa é uma adição perfeita à estante de qualquer leitor ou amante do Cinema. O filme ANIMAIS FANTÁSTICOS E ONDE HABITAM estreou nos cinemas em novembro de 2016.",
+			"industryIdentifiers": [
+				{
+					"type": "ISBN_13",
+					"identifier": "9781781107386"
+				},
+				{
+					"type": "ISBN_10",
+					"identifier": "1781107386"
+				}
+			],
+			"readingModes": {
+				"text": true,
+				"image": true
+			},
+			"pageCount": 203,
+			"printType": "BOOK",
+			"categories": ["Performing Arts"],
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": true,
+			"contentVersion": "0.8.9.0.preview.3",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=4GGMDgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=4GGMDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "pt",
+			"previewLink": "http://books.google.com.br/books?id=4GGMDgAAQBAJ&printsec=frontcover&dq=harry+potter&hl=&cd=7&source=gbs_api",
+			"infoLink": "https://play.google.com/store/books/details?id=4GGMDgAAQBAJ&source=gbs_api",
+			"canonicalVolumeLink": "https://play.google.com/store/books/details?id=4GGMDgAAQBAJ"
+		},
+		"saleInfo": {
+			"country": "BR",
+			"saleability": "FOR_SALE",
+			"isEbook": true,
+			"listPrice": {
+				"amount": 24.9,
+				"currencyCode": "BRL"
+			},
+			"retailPrice": {
+				"amount": 24.9,
+				"currencyCode": "BRL"
+			},
+			"buyLink": "https://play.google.com/store/books/details?id=4GGMDgAAQBAJ&rdid=book-4GGMDgAAQBAJ&rdot=1&source=gbs_api",
+			"offers": [
+				{
+					"finskyOfferType": 1,
+					"listPrice": {
+						"amountInMicros": 24900000,
+						"currencyCode": "BRL"
+					},
+					"retailPrice": {
+						"amountInMicros": 24900000,
+						"currencyCode": "BRL"
+					},
+					"giftable": true
+				}
+			]
+		},
+		"accessInfo": {
+			"country": "BR",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.com.br/books/download/ANIMAIS_FANT%C3%81STICOS_E_ONDE_HABITAM_O_RO-sample-epub.acsm?id=4GGMDgAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.com.br/books/download/ANIMAIS_FANT%C3%81STICOS_E_ONDE_HABITAM_O_RO-sample-pdf.acsm?id=4GGMDgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=4GGMDgAAQBAJ&hl=&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "Inspirado no livro didático de Hogwarts escrito por Newt Scamander, ANIMAIS FANTÁSTICOS E ONDE HABITAM: O ROTEIRO ORIGINAL marca a estreia de J.K. Rowling, autora dos queridos best-sellers internacionais HARRY POTTER, como roteirista."
+		}
+	},
+	{
+		"kind": "books#volume",
+		"id": "hjcQCwAAQBAJ",
+		"etag": "MYH9HyHiFRo",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/hjcQCwAAQBAJ",
+		"volumeInfo": {
+			"title": "Harry Potter e a Câmara Secreta",
+			"authors": ["J.K. Rowling"],
+			"publisher": "Pottermore Publishing",
+			"publishedDate": "2015-12-08",
+			"description": "Há uma trama, Harry Potter. Uma trama para fazer coisas terríveis acontecerem na Escola de Magia e Bruxaria de Hogwarts este ano.' O verão de Harry Potter incluiu o pior aniversário de todos, avisos macabros de um elfo doméstico chamado Dobby, e ser resgatado dos Dursleys por seu amigo Rony Weasley em um carro voador mágico! De volta à Escola de Magia e Bruxaria de Hogwarts para seu segundo ano, Harry ouve estranhos sussurros ecoando pelos corredores vazios - e então, os ataques começam! Estudantes são encontrados transformados em pedra... As previsões sinistras de Dobby parecem estar se tornando realidade.",
+			"industryIdentifiers": [
+				{
+					"type": "ISBN_13",
+					"identifier": "9781781103692"
+				},
+				{
+					"type": "ISBN_10",
+					"identifier": "1781103690"
+				}
+			],
+			"readingModes": {
+				"text": true,
+				"image": true
+			},
+			"pageCount": 358,
+			"printType": "BOOK",
+			"categories": ["Juvenile Fiction"],
+			"averageRating": 5,
+			"ratingsCount": 1,
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": true,
+			"contentVersion": "2.20.23.0.preview.3",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=hjcQCwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=hjcQCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "pt",
+			"previewLink": "http://books.google.com.br/books?id=hjcQCwAAQBAJ&printsec=frontcover&dq=harry+potter&hl=&cd=8&source=gbs_api",
+			"infoLink": "https://play.google.com/store/books/details?id=hjcQCwAAQBAJ&source=gbs_api",
+			"canonicalVolumeLink": "https://play.google.com/store/books/details?id=hjcQCwAAQBAJ"
+		},
+		"saleInfo": {
+			"country": "BR",
+			"saleability": "FOR_SALE",
+			"isEbook": true,
+			"listPrice": {
+				"amount": 29.9,
+				"currencyCode": "BRL"
+			},
+			"retailPrice": {
+				"amount": 29.9,
+				"currencyCode": "BRL"
+			},
+			"buyLink": "https://play.google.com/store/books/details?id=hjcQCwAAQBAJ&rdid=book-hjcQCwAAQBAJ&rdot=1&source=gbs_api",
+			"offers": [
+				{
+					"finskyOfferType": 1,
+					"listPrice": {
+						"amountInMicros": 29900000,
+						"currencyCode": "BRL"
+					},
+					"retailPrice": {
+						"amountInMicros": 29900000,
+						"currencyCode": "BRL"
+					},
+					"giftable": true
+				}
+			]
+		},
+		"accessInfo": {
+			"country": "BR",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.com.br/books/download/Harry_Potter_e_a_C%C3%A2mara_Secreta-sample-epub.acsm?id=hjcQCwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.com.br/books/download/Harry_Potter_e_a_C%C3%A2mara_Secreta-sample-pdf.acsm?id=hjcQCwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=hjcQCwAAQBAJ&hl=&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "Há uma trama, Harry Potter."
+		}
+	},
+	{
+		"kind": "books#volume",
+		"id": "yjUQCwAAQBAJ",
+		"etag": "TWsvLGZEKqA",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/yjUQCwAAQBAJ",
+		"volumeInfo": {
+			"title": "Harry Potter e o enigma do Príncipe",
+			"authors": ["J.K. Rowling"],
+			"publisher": "Pottermore Publishing",
+			"publishedDate": "2015-12-08",
+			"description": "Lá estava, pairando no céu sobre a escola: o crânio verde flamejante com uma língua de cobra, a marca deixada pelos Comensais da Morte sempre que entravam em um prédio... sempre que matavam... Quando Dumbledore chega à Rua dos Alfeneiros numa certa noite de verão para buscar Harry Potter, a mão com que segura a varinha está enrugada e enegrecida, mas ele não revela o motivo. Segredos e suspeitas se espalham pelo Mundo Bruxo, e a própria Hogwarts não é mais segura. Harry está convencido de que Malfoy porta a Marca Negra: há um Comensal da Morte entre eles. Harry precisará de magia poderosa e amigos verdadeiros para explorar os segredos mais sombrios de Voldemort, e Dumbledore se prepara para encarar seu destino...",
+			"industryIdentifiers": [
+				{
+					"type": "ISBN_13",
+					"identifier": "9781781104057"
+				},
+				{
+					"type": "ISBN_10",
+					"identifier": "1781104050"
+				}
+			],
+			"readingModes": {
+				"text": true,
+				"image": true
+			},
+			"pageCount": 654,
+			"printType": "BOOK",
+			"categories": ["Juvenile Fiction"],
+			"averageRating": 5,
+			"ratingsCount": 1,
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": true,
+			"contentVersion": "1.16.20.0.preview.3",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=yjUQCwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=yjUQCwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "pt",
+			"previewLink": "http://books.google.com.br/books?id=yjUQCwAAQBAJ&printsec=frontcover&dq=harry+potter&hl=&cd=9&source=gbs_api",
+			"infoLink": "https://play.google.com/store/books/details?id=yjUQCwAAQBAJ&source=gbs_api",
+			"canonicalVolumeLink": "https://play.google.com/store/books/details?id=yjUQCwAAQBAJ"
+		},
+		"saleInfo": {
+			"country": "BR",
+			"saleability": "FOR_SALE",
+			"isEbook": true,
+			"listPrice": {
+				"amount": 29.9,
+				"currencyCode": "BRL"
+			},
+			"retailPrice": {
+				"amount": 29.9,
+				"currencyCode": "BRL"
+			},
+			"buyLink": "https://play.google.com/store/books/details?id=yjUQCwAAQBAJ&rdid=book-yjUQCwAAQBAJ&rdot=1&source=gbs_api",
+			"offers": [
+				{
+					"finskyOfferType": 1,
+					"listPrice": {
+						"amountInMicros": 29900000,
+						"currencyCode": "BRL"
+					},
+					"retailPrice": {
+						"amountInMicros": 29900000,
+						"currencyCode": "BRL"
+					},
+					"giftable": true
+				}
+			]
+		},
+		"accessInfo": {
+			"country": "BR",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.com.br/books/download/Harry_Potter_e_o_enigma_do_Pr%C3%ADncipe-sample-epub.acsm?id=yjUQCwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.com.br/books/download/Harry_Potter_e_o_enigma_do_Pr%C3%ADncipe-sample-pdf.acsm?id=yjUQCwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=yjUQCwAAQBAJ&hl=&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "Lá estava, pairando no céu sobre a escola: o crânio verde flamejante com uma língua de cobra, a marca deixada pelos Comensais da Morte sempre que entravam em um prédio... sempre que matavam."
+		}
+	},
+	{
+		"kind": "books#volume",
+		"id": "qpw3EAAAQBAJ",
+		"etag": "B3ueMcz2kBQ",
+		"selfLink": "https://www.googleapis.com/books/v1/volumes/qpw3EAAAQBAJ",
+		"volumeInfo": {
+			"title": "O baile das loucas",
+			"authors": ["Victoria Mas"],
+			"publisher": "Verus Editora",
+			"publishedDate": "2021-08-09",
+			"description": "Um romance poderoso e emocionante, O baile das loucas desnuda a condição feminina no século XIX. Obra que inspirou o filme do Prime Video. Hospital de la Salpêtrière, Paris, 1885. O dr. Charcot mantém a Cidade Luz fascinada com suas exibições de hipnose em mulheres consideradas loucas, histéricas e alienadas. Mas a verdade é bem mais complexa — essas mulheres muitas vezes são simplesmente inconvenientes, esposas indesejadas, filhas rebeldes ou pessoas que perderam algo precioso. Para a sociedade parisiense, o ponto alto do ano é o Baile das Loucas, quando a nata da sociedade vem observar as pacientes do La Salpêtrière vestidas com suas melhores roupas. Para as próprias mulheres, é um raro momento de esperança. Uma noite festiva que, no fundo, esconde uma realidade sórdida: o baile é apenas mais uma das experiências do dr. Charcot, determinado a transformar as pacientes do La Salpêtrière em mulheres \"direitas\". Graças à escrita refinada de Victoria Mas e à admirável reconstrução histórica, O baile das loucas, um romance terrível mas poderoso, tornou-se um hino de liberdade em homenagem a todas as mulheres. \"Neste tesouro gótico sombrio e encantador, Victoria Mas explora a dor, o trauma e a sororidade por detrás das paredes do infame Hospital de la Salpêtrière, em Paris.\" – Paula Hawkins, autora de A garota no trem \"Um conto sombrio e magnífico sobre perversidade espetaculosa, injustiça selvagem e a força inextinguível das mulheres... Tão comovente quanto macabro.\" – Emma Stonex, autora de O farol \"Uma leitura essencial.\" – Cosmopolitan \"Entre na dança desta pequena obra-prima e se permita deslumbrar-se. Certamente vai chegar às listas de mais vendidos.\" – The Parisian",
+			"industryIdentifiers": [
+				{
+					"type": "ISBN_13",
+					"identifier": "9786559240319"
+				},
+				{
+					"type": "ISBN_10",
+					"identifier": "6559240312"
+				}
+			],
+			"readingModes": {
+				"text": true,
+				"image": true
+			},
+			"pageCount": 167,
+			"printType": "BOOK",
+			"categories": ["Fiction"],
+			"maturityRating": "NOT_MATURE",
+			"allowAnonLogging": false,
+			"contentVersion": "2.6.6.0.preview.3",
+			"panelizationSummary": {
+				"containsEpubBubbles": false,
+				"containsImageBubbles": false
+			},
+			"imageLinks": {
+				"smallThumbnail": "http://books.google.com/books/content?id=qpw3EAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+				"thumbnail": "http://books.google.com/books/content?id=qpw3EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+			},
+			"language": "pt",
+			"previewLink": "http://books.google.com.br/books?id=qpw3EAAAQBAJ&printsec=frontcover&dq=harry+potter&hl=&cd=10&source=gbs_api",
+			"infoLink": "https://play.google.com/store/books/details?id=qpw3EAAAQBAJ&source=gbs_api",
+			"canonicalVolumeLink": "https://play.google.com/store/books/details?id=qpw3EAAAQBAJ"
+		},
+		"saleInfo": {
+			"country": "BR",
+			"saleability": "FOR_SALE",
+			"isEbook": true,
+			"listPrice": {
+				"amount": 8.97,
+				"currencyCode": "BRL"
+			},
+			"retailPrice": {
+				"amount": 8.97,
+				"currencyCode": "BRL"
+			},
+			"buyLink": "https://play.google.com/store/books/details?id=qpw3EAAAQBAJ&rdid=book-qpw3EAAAQBAJ&rdot=1&source=gbs_api",
+			"offers": [
+				{
+					"finskyOfferType": 1,
+					"listPrice": {
+						"amountInMicros": 8970000,
+						"currencyCode": "BRL"
+					},
+					"retailPrice": {
+						"amountInMicros": 8970000,
+						"currencyCode": "BRL"
+					},
+					"giftable": true
+				}
+			]
+		},
+		"accessInfo": {
+			"country": "BR",
+			"viewability": "PARTIAL",
+			"embeddable": true,
+			"publicDomain": false,
+			"textToSpeechPermission": "ALLOWED",
+			"epub": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.com.br/books/download/O_baile_das_loucas-sample-epub.acsm?id=qpw3EAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"pdf": {
+				"isAvailable": true,
+				"acsTokenLink": "http://books.google.com.br/books/download/O_baile_das_loucas-sample-pdf.acsm?id=qpw3EAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+			},
+			"webReaderLink": "http://play.google.com/books/reader?id=qpw3EAAAQBAJ&hl=&source=gbs_api",
+			"accessViewStatus": "SAMPLE",
+			"quoteSharingAllowed": false
+		},
+		"searchInfo": {
+			"textSnippet": "Graças à escrita refinada de Victoria Mas e à admirável reconstrução histórica, O baile das loucas, um romance terrível mas poderoso, tornou-se um hino de liberdade em homenagem a todas as mulheres."
+		}
+	}
+]
