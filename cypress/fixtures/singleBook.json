@@ -1,0 +1,96 @@
+{
+	"kind": "books#volume",
+	"id": "-bF2CwAAQBAJ",
+	"etag": "QI33KKBVk4A",
+	"selfLink": "https://www.googleapis.com/books/v1/volumes/-bF2CwAAQBAJ",
+	"volumeInfo": {
+		"title": "Harry Potter: A Coleção Completa (1-7)",
+		"authors": ["J.K. Rowling"],
+		"publisher": "Pottermore Publishing",
+		"publishedDate": "2016-01-28",
+		"description": "Quando Harry Potter é deixado em uma porta ainda bebê, ele não faz ideia de que é o Menino Que Sobreviveu, ou de que é famoso em todo o mundo bruxo. Anos depois, ele fica surpreso ao receber uma carta de admissão da Escola de Magia e Bruxaria de Hogwarts e é rapidamente levado em uma aventura mágica como nenhuma outra. Junte-se a Harry e seus amigos leais, Hermione e Ron, nesta história sobre o poder da verdade, amor e esperança. Clássicos do nosso tempo, os ebooks de Harry Potter nunca deixam de oferecer conforto e escapismo. Com sua mensagem de esperança, pertencimento e o poder duradouro da verdade e do amor, a história do Menino Que Sobreviveu continua a encantar gerações de novos leitores.",
+		"industryIdentifiers": [
+			{
+				"type": "ISBN_13",
+				"identifier": "9781781106587"
+			},
+			{
+				"type": "ISBN_10",
+				"identifier": "1781106584"
+			}
+		],
+		"readingModes": {
+			"text": true,
+			"image": true
+		},
+		"pageCount": 4171,
+		"printType": "BOOK",
+		"categories": ["Juvenile Fiction"],
+		"averageRating": 5,
+		"ratingsCount": 1,
+		"maturityRating": "NOT_MATURE",
+		"allowAnonLogging": true,
+		"contentVersion": "1.27.30.0.preview.3",
+		"panelizationSummary": {
+			"containsEpubBubbles": false,
+			"containsImageBubbles": false
+		},
+		"imageLinks": {
+			"smallThumbnail": "http://books.google.com/books/content?id=-bF2CwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+			"thumbnail": "http://books.google.com/books/content?id=-bF2CwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+		},
+		"language": "pt",
+		"previewLink": "http://books.google.com.br/books?id=-bF2CwAAQBAJ&printsec=frontcover&dq=harry+potter&hl=&cd=1&source=gbs_api",
+		"infoLink": "https://play.google.com/store/books/details?id=-bF2CwAAQBAJ&source=gbs_api",
+		"canonicalVolumeLink": "https://play.google.com/store/books/details?id=-bF2CwAAQBAJ"
+	},
+	"saleInfo": {
+		"country": "BR",
+		"saleability": "FOR_SALE",
+		"isEbook": true,
+		"listPrice": {
+			"amount": 189.9,
+			"currencyCode": "BRL"
+		},
+		"retailPrice": {
+			"amount": 189.9,
+			"currencyCode": "BRL"
+		},
+		"buyLink": "https://play.google.com/store/books/details?id=-bF2CwAAQBAJ&rdid=book--bF2CwAAQBAJ&rdot=1&source=gbs_api",
+		"offers": [
+			{
+				"finskyOfferType": 1,
+				"listPrice": {
+					"amountInMicros": 189900000,
+					"currencyCode": "BRL"
+				},
+				"retailPrice": {
+					"amountInMicros": 189900000,
+					"currencyCode": "BRL"
+				},
+				"giftable": true
+			}
+		]
+	},
+	"accessInfo": {
+		"country": "BR",
+		"viewability": "PARTIAL",
+		"embeddable": true,
+		"publicDomain": false,
+		"textToSpeechPermission": "ALLOWED",
+		"epub": {
+			"isAvailable": true,
+			"acsTokenLink": "http://books.google.com.br/books/download/Harry_Potter_A_Cole%C3%A7%C3%A3o_Completa_1_7-sample-epub.acsm?id=-bF2CwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+		},
+		"pdf": {
+			"isAvailable": true,
+			"acsTokenLink": "http://books.google.com.br/books/download/Harry_Potter_A_Cole%C3%A7%C3%A3o_Completa_1_7-sample-pdf.acsm?id=-bF2CwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+		},
+		"webReaderLink": "http://play.google.com/books/reader?id=-bF2CwAAQBAJ&hl=&source=gbs_api",
+		"accessViewStatus": "SAMPLE",
+		"quoteSharingAllowed": false
+	},
+	"searchInfo": {
+		"textSnippet": "Quando Harry Potter é deixado em uma porta ainda bebê, ele não faz ideia de que é o Menino Que Sobreviveu, ou de que é famoso em todo o mundo bruxo."
+	}
+}
