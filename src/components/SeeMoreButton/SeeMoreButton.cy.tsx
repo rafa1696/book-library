@@ -3,7 +3,6 @@ import SeeMoreButton from './SeeMoreButton'
 
 describe('<SeeMoreButton />', () => {
 	it('renders', () => {
-		// see: https://on.cypress.io/mounting-react
 		cy.mount(
 			<StaticRouter location={'/'}>
 				<SeeMoreButton />

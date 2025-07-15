@@ -30,7 +30,7 @@ describe('<Search />', () => {
 		cy.intercept(
 			{
 				method: 'GET',
-				url: 'https://www.googleapis.com/books/v1/volumes*', // Usa * para capturar qualquer parâmetro de consulta
+				url: 'https://www.googleapis.com/books/v1/volumes*',
 			},
 			{
 				delay: 2000,
@@ -38,7 +38,6 @@ describe('<Search />', () => {
 			}
 		).as('getBooks')
 
-		// Digita o termo de busca
 		cy.get('[data-cy="search-input-textbox"]').type('Harry Potter')
 		cy.get('[data-cy="search-input-textbox"]').should('have.value', 'Harry Potter')
 
