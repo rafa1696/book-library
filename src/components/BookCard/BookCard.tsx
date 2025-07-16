@@ -88,6 +88,7 @@ const BookCard: FC<IBookCard> = ({ book }) => {
 				)}
 				{checkForLocation === 0 ? null : (
 					<button
+						data-cy="product-page-button"
 						onClick={() => handleButtons(BookCardButtons.ProductPage)}
 						className={styles.container_textsDiv__productPageButton}
 					>
