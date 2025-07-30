@@ -97,7 +97,9 @@ const MyBooks: FC = () => {
 						)
 					})
 				) : (
-					<span>Parece que não há livros em sua biblioteca, comece pesquisando!</span>
+					<span data-cy="empty-shelf-message">
+						Parece que não há livros em sua biblioteca, comece pesquisando!
+					</span>
 				)}
 				{checkForLocation === 0 && myBooksQuery.length > 0 && <SeeMoreButton />}
 			</Gallery>
