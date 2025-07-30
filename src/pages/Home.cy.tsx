@@ -93,5 +93,54 @@ describe('<Home />', () => {
 				cy.get('ul li').should('exist')
 			})
 		})
+
+		it('should display errors when books do not load', () => {
+			// Cria um QueryClient sem cache e sem retry para garantir o erro
+			const queryClient = new QueryClient({
+				defaultOptions: {
+					queries: {
+						retry: false,
+						cacheTime: 0,
+					},
+				},
+			})
+
+			const mockBooks = [
+				{
+					id: '-bF2CwAAQBAJ',
+					bookAddDate: Date.now(),
+					bookName: 'Harry Potter e o prisioneiro de Azkaban',
+				},
+			]
+			const mockContextValue = getMockBookLibraryContext(mockBooks)
+
+			cy.intercept(
+				{
+					method: 'GET',
+					url: 'https://www.googleapis.com/books/v1/volumes/*',
+				},
+				{
+					statusCode: 500,
+					body: { isError: true },
+				}
+			).as('getBookItemError')
+
+			cy.mount(
+				<BookLibraryContext.Provider value={mockContextValue}>
+					<QueryClientProvider client={queryClient}>
+						<StaticRouter location={'/'}>
+							<Home />
+						</StaticRouter>
+					</QueryClientProvider>
+				</BookLibraryContext.Provider>
+			)
+
+			cy.wait('@getBookItemError')
+
+			cy.get('[data-cy="home-page"] > :nth-child(2) > div').should(
+				'have.text',
+				'Erro ao carregar alguns livros.'
+			)
+		})
 	})
 })
