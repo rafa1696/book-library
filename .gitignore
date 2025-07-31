@@ -27,3 +27,7 @@ dist-ssr
 cypress/screenshots
 cypress/videos
 cypress/results
+
+# jest artifacts
+jest-test-results.json
+coverage
