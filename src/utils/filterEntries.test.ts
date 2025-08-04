@@ -1,4 +1,5 @@
 /// <reference types="jest"/>
+
 import { FilterTypes } from '../enums/FilterTypes.enum'
 import { mockedBookInfo } from '../mocks/mockedBooksInfo'
 import filterEntries from './filterEntries'
