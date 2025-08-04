@@ -18,4 +18,16 @@ describe('filterEntries', () => {
 	it('should sort entries alphabetically', () => {
 		expect(filterEntries(mockedEntries.reverse(), FilterTypes.Alphabetical)).toEqual(mockedBookInfo)
 	})
+
+	it('should sort entries from the oldest to newest', () => {
+		expect(filterEntries(mockedEntries, FilterTypes.Oldest)).toEqual(
+			mockedEntries.sort((a, b) => a.bookAddDate - b.bookAddDate)
+		)
+	})
+
+	it('should sort entries from the newest to oldest', () => {
+		expect(filterEntries(mockedEntries, FilterTypes.Newest)).toEqual(
+			mockedEntries.sort((a, b) => b.bookAddDate - a.bookAddDate)
+		)
+	})
 })
