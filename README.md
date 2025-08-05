@@ -1,4 +1,6 @@
 # Book Library
+[![Deploy static content to Pages](https://github.com/rafa1696/book-library/actions/workflows/deploy.yml/badge.svg)](https://github.com/rafa1696/book-library/actions/workflows/deploy.yml)
+[![Tests with Jest and Coverage](https://github.com/rafa1696/book-library/actions/workflows/jest.yml/badge.svg)](https://github.com/rafa1696/book-library/actions/workflows/jest.yml)
 
 Este projeto é uma aplicação de biblioteca de livros desenvolvida com React, TypeScript e Vite. O objetivo é fornecer uma interface de usuário interativa e eficiente para gerenciar uma coleção de livros.
 
