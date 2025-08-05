@@ -1,5 +1,4 @@
-/// <reference types="jest"/>
-
+import { expect } from '@jest/globals'
 import { locationCheck } from './locationCheck'
 
 describe('locationCheck', () => {
