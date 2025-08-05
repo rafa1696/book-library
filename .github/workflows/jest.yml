@@ -26,9 +26,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-
+          cache: 'yarn'
+          cache-dependency-path: ./package.json
       - name: Instalar dependências
-        run: yarn ci
+        run: yarn install --frozen-lockfile
 
       - name: Executar testes Jest e gerar coverage
         run: yarn test
