@@ -1,5 +1,4 @@
-/// <reference types="jest" />
-
+import { expect } from '@jest/globals'
 import { truncateText } from './truncateText'
 
 describe('truncateText', () => {

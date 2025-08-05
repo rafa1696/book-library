@@ -1,3 +1,5 @@
+/// <reference types="cypress"/>
+
 describe('googleBooks API', () => {
 	it('fetches books based on query using cy.api', () => {
 		const query = '-bF2CwAAQBAJ'
