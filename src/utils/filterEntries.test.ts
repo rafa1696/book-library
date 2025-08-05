@@ -1,5 +1,4 @@
-/// <reference types="jest"/>
-
+import { expect } from '@jest/globals'
 import { FilterTypes } from '../enums/FilterTypes.enum'
 import { mockedBookInfo } from '../mocks/mockedBooksInfo'
 import filterEntries from './filterEntries'

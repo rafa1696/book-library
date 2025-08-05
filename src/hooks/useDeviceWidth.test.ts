@@ -1,5 +1,5 @@
 import useDeviceWidth from './useDeviceWidth'
-import { expect, it, describe, beforeEach, afterEach, jest } from '@jest/globals'
+import { expect, it, describe, beforeEach, afterEach } from '@jest/globals'
 import { renderHook, act } from '@testing-library/react'
 
 // Ensure window is available in the test environment (JSDOM is used by Jest by default)
