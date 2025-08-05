@@ -28,10 +28,10 @@ jobs:
           node-version: '20'
 
       - name: Instalar dependências
-        run: npm ci
+        run: yarn ci
 
       - name: Executar testes Jest e gerar coverage
-        run: npm test
+        run: yarn test
 
       - name: Upload do relatório de coverage
         uses: actions/upload-artifact@v4
