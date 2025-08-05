@@ -21,7 +21,7 @@
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedSideEffectImports": true,
-		"types": ["cypress", "node"]
+		"types": ["cypress", "node", "jest"]
 	},
 	"include": ["src", "cypress"]
 }

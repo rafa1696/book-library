@@ -32,6 +32,8 @@ declare global {
 
 Cypress.Commands.add('mount', mount)
 
+import 'cypress-plugin-api'
+
 // Style imports
 import '../../src/styles/import-all.css'
 

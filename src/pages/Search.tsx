@@ -12,7 +12,7 @@ const Search = () => {
 	const { data: books, isLoading, isError } = useBooks(query)
 
 	return (
-		<div>
+		<div cy-data="search-page">
 			<SearchFunction onSearch={setQuery} />
 
 			{isLoading && (
