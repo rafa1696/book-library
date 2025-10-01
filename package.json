@@ -35,7 +35,7 @@
 		"@types/react": "^18.3.18",
 		"@types/react-dom": "^18.3.5",
 		"@types/testing-library__react": "^10.2.0",
-		"@vitejs/plugin-react": "^4.7.0",
+		"@vitejs/plugin-react": "^5.0.4",
 		"cypress": "^14.5.1",
 		"cypress-plugin-api": "^2.11.2",
 		"eslint": "^9.24.0",
