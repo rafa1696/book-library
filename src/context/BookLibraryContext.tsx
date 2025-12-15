@@ -108,9 +108,10 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
 		if (!parsedBooks.find((book: BookInfo) => book.id === bookInfo.id)) {
 			localStorage.setItem('books', JSON.stringify([...parsedBooks, bookInfo]))
 			dispatch({ type: 'ADD_BOOK', payload: bookInfo })
+			dispatch({ type: 'ADD_TOAST_MESSAGE', payload: ToastType.success })
+		} else {
+			dispatch({ type: 'ADD_TOAST_MESSAGE', payload: ToastType.bookAlreadyAdded })
 		}
-
-		dispatch({ type: 'ADD_TOAST_MESSAGE', payload: ToastType.success })
 	}
 
 	const removeBook = (bookId: string) => {
@@ -201,7 +202,6 @@ export const BookLibraryProvider = ({ children }: ContextProviderProps) => {
 	}
 
 	useEffect(() => {
-		console.log('message pipeline', state.toastMessagePipeline)
 		if (state.toastMessagePipeline.length === 0) return
 
 		dispatch({

@@ -1,34 +1,35 @@
 :root {
-  --font-family: "Roboto";
-  --primary-color: #3498db;
-  --secondary-color: #2ecc71;
-  --success-color: #198754;
-  --failure-color: #dc3545;
-  --white-color: #fff;
-  font-size: 62.5%; /* 1rem = 10px */
+	--font-family: 'Roboto';
+	--primary-color: #3498db;
+	--secondary-color: #2ecc71;
+	--success-color: #198754;
+	--failure-color: #dc3545;
+	--warning-color: #ffc107;
+	--white-color: #fff;
+	font-size: 62.5%; /* 1rem = 10px */
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-  background-color: #f4f4f4;
-  color: #333;
-  font-family: var(--font-family);
-  font-size: 1.6rem; /* 16px */
-  line-height: 1.6;
-  padding-bottom: 3.5rem;
-  position: relative;
+	background-color: #f4f4f4;
+	color: #333;
+	font-family: var(--font-family);
+	font-size: 1.6rem; /* 16px */
+	line-height: 1.6;
+	padding-bottom: 3.5rem;
+	position: relative;
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background-color: #333;
-    color: #fff;
-  }
+	body {
+		background-color: #333;
+		color: #fff;
+	}
 }
 
 h1,
@@ -37,68 +38,68 @@ h3,
 h4,
 h5,
 h6 {
-  margin-bottom: 1.5rem;
-  font-weight: 600;
+	margin-bottom: 1.5rem;
+	font-weight: 600;
 }
 
 h1 {
-  font-weight: 700;
-  padding: 0 1.6rem;
+	font-weight: 700;
+	padding: 0 1.6rem;
 
-  @media (min-width: 768px) {
-    padding: 0;
-    text-align: center;
-  }
+	@media (min-width: 768px) {
+		padding: 0;
+		text-align: center;
+	}
 }
 
 h2 {
-  font-weight: 600;
+	font-weight: 600;
 }
 
 p {
-  font-weight: 400;
-  margin-bottom: 1.5rem;
+	font-weight: 400;
+	margin-bottom: 1.5rem;
 }
 
 a {
-  color: var(--primary-color);
-  font-weight: 300;
-  text-decoration: none;
+	color: var(--primary-color);
+	font-weight: 300;
+	text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 button {
-  cursor: pointer;
-  background-color: var(--primary-color);
-  color: #fff;
-  border: none;
-  padding: 0.8rem 1.6rem;
-  font-size: 1.6rem;
-  border-radius: 0.4rem;
-  transition: background-color 0.3s ease;
+	cursor: pointer;
+	background-color: var(--primary-color);
+	color: #fff;
+	border: none;
+	padding: 0.8rem 1.6rem;
+	font-size: 1.6rem;
+	border-radius: 0.4rem;
+	transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: var(--secondary-color);
+	background-color: var(--secondary-color);
 }
 
 ul {
-  list-style: none;
+	list-style: none;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+	max-width: 100%;
+	height: auto;
+	display: block;
 }
 
 textarea {
-  border-radius: 0.4rem;
-  font-family: var(--font-family);
-  min-height: 12rem;
-  padding: 0.4rem;
-  width: 100%;
+	border-radius: 0.4rem;
+	font-family: var(--font-family);
+	min-height: 12rem;
+	padding: 0.4rem;
+	width: 100%;
 }

@@ -1,5 +1,6 @@
 export enum ToastType {
-  unset,
-  success,
-  failure,
+	unset,
+	success,
+	failure,
+	bookAlreadyAdded,
 }
