@@ -31,3 +31,5 @@ cypress/results
 # jest artifacts
 jest-test-results.json
 coverage
+*storybook.log
+storybook-static
