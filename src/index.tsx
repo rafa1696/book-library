@@ -8,6 +8,7 @@ import { StrictMode } from "react";
 const queryClient = new QueryClient();
 
 const container = document.getElementById("app");
+container?.classList.add("app-root");
 const root = createRoot(container!);
 
 root.render(

@@ -1,7 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import Toast from '../components/Toast/Toast';
+import React, { useEffect } from 'react';
+import { BookLibraryProvider, useBookLibraryContext } from '../context/BookLibraryContext';
 import { ToastType } from '../enums/ToastType.enum';
-import React from 'react';
+
+const ProviderDecorator = (Story: any) =>
+  React.createElement(
+    BookLibraryProvider,
+    null,
+    React.createElement('div', { style: { padding: '20px' } }, React.createElement(Story))
+  );
 
 const meta = {
   title: 'Components/Toast',
@@ -10,14 +18,7 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  decorators: [
-    (Story: any) =>
-      React.createElement(
-        'div',
-        { style: { padding: '20px' } },
-        React.createElement(Story)
-      ),
-  ],
+  decorators: [ProviderDecorator],
 } satisfies Meta<typeof Toast>;
 
 export default meta;
@@ -25,8 +26,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Success: Story = {
   decorators: [
-    (Story: any) => {
+    () => {
       const ToastWithContext = () => {
+        const { toastMessageDefinition } = useBookLibraryContext();
+        useEffect(() => {
+          toastMessageDefinition(ToastType.success);
+        }, []);
         return React.createElement(Toast);
       };
       return React.createElement(ToastWithContext);
@@ -36,8 +41,12 @@ export const Success: Story = {
 
 export const Failure: Story = {
   decorators: [
-    (Story: any) => {
+    () => {
       const ToastWithContext = () => {
+        const { toastMessageDefinition } = useBookLibraryContext();
+        useEffect(() => {
+          toastMessageDefinition(ToastType.failure);
+        }, []);
         return React.createElement(Toast);
       };
       return React.createElement(ToastWithContext);
@@ -47,7 +56,7 @@ export const Failure: Story = {
 
 export const Hidden: Story = {
   decorators: [
-    (Story: any) => {
+    () => {
       const ToastWithContext = () => {
         return React.createElement(Toast);
       };

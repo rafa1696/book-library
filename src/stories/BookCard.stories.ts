@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import BookCard from '../components/BookCard/BookCard';
 import { GoogleBookVolumes } from '../types/GoogleBookVolumes.type';
-import React from 'react';
 import { withRouter } from './decorators/withRouter';
 import { withContext } from './decorators/withContext';
 
@@ -35,7 +34,7 @@ const mockBook: GoogleBookVolumes = {
     printType: 'BOOK',
     categories: ['Fiction'],
     maturityRating: 'NOT_MATURE',
-    allowAnonTracking: true,
+    allowAnonLogging: true,
     contentVersion: '1.2.2.0.preview.2',
     panelizationSummary: {
       containsEpubBubbles: false,
@@ -132,7 +131,10 @@ export const WithoutCover: Story = {
       ...mockBook,
       volumeInfo: {
         ...mockBook.volumeInfo,
-        imageLinks: undefined,
+        imageLinks: {
+          smallThumbnail: "",
+          thumbnail: "",
+        },
       },
     },
   },

@@ -1,6 +1,6 @@
 /* Estilos globais do Storybook */
 :root {
-  --sb-color-bg: #f5f5f5;
+  /* --sb-color-bg: #f5f5f5; */
 }
 
 * {
@@ -11,23 +11,23 @@
 html {
   margin: 0 !important;
   padding: 0 !important;
-  background-color: #f5f5f5 !important;
+  /* background-color: #f5f5f5 !important; */
 }
 
 body {
   margin: 0 !important;
   padding: 0 !important;
-  background-color: #f5f5f5 !important;
+  /* background-color: #f5f5f5 !important; */
 }
 
 #storybook-root {
-  background-color: #f5f5f5 !important;
+  /* background-color: #f5f5f5 !important; */
   margin: 0 !important;
   padding: 0 !important;
 }
 
 .sbdocs {
-  background-color: #f5f5f5 !important;
+  /* background-color: #f5f5f5 !important; */
 }
 
 

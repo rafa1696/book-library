@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import DiaryCard from '../components/DiaryCard/DiaryCard';
 import { ReadingDiaryEntry } from '../types/ReadingDiaryEntry.type';
-import React from 'react';
 import { withRouter } from './decorators/withRouter';
 import { withContext } from './decorators/withContext';
 

@@ -11,7 +11,7 @@
     }
   }
 
-  &:not(.isOnHome) ul {
+  :global(.app-root) &:not(.isOnHome) ul {
     @media (min-width: 768px) {
       gap: 1rem;
       display: grid;
@@ -20,7 +20,7 @@
   }
 }
 
-.isOnHome ul {
+:global(.app-root) .isOnHome ul {
   flex-direction: row;
   margin-bottom: 0;
   max-width: 100%;
